@@ -8,7 +8,7 @@ mongoose.connect( 'mongodb://localhost/quicktest' || MONGODB_URI);
 
 
 app.use(bodyParser.json());
-app.use(express.static( __dirname + '/../client' ));
+app.use(express.static( __dirname + '/client' ));
 
 
 //model and schema
