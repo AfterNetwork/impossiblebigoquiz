@@ -1,4 +1,5 @@
-// app.js
+
+
 var routerApp = angular.module('routerApp', ['ui.router']);
 
 routerApp.config(function($stateProvider, $urlRouterProvider) {
@@ -24,17 +25,12 @@ routerApp.config(function($stateProvider, $urlRouterProvider) {
             templateUrl: 'templates/death/death.html'
         })
 
-        .state('loading', {
-            url:'/loading',
-            templateUrl: 'templates/start/start.html'
-        });
-
 });
 
 routerApp.controller('MainpageController', function($http, $state, $sce){
     this.allTheQuestions;
     this.question;
-    $http.get('/questions')
+    $http.post('/questions')
       .then((res) => {
         this.allTheQuestions = res.data;
         this.question = $sce.trustAsHtml(this.allTheQuestions[this.counter].question);
@@ -67,6 +63,7 @@ routerApp.controller('MainpageController', function($http, $state, $sce){
         }
     }
 
-})
+});
+
 
 
