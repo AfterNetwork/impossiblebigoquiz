@@ -11,18 +11,18 @@ routerApp.config(function($stateProvider, $urlRouterProvider) {
 
         .state('quiz', {
             url: '/quiz',
-            templateUrl: 'templates/questions/index.html',
+            templateUrl: '../templates/questions/index.html',
             controller: 'MainpageController'
         })
 
         .state('victory', {
             url: '/victory',
-            templateUrl: 'templates/victory/victory.html'
+            templateUrl: '../templates/victory/victory.html'
         })
 
         .state('death', {
             url: '/death',
-            templateUrl: 'templates/death/death.html'
+            templateUrl: '../templates/death/death.html'
         })
 
 });
