@@ -45,7 +45,7 @@ routerApp.controller('MainpageController', function($http, $state, $sce){
         if (this.answer === this.allTheQuestions[this.counter].answer){
             this.counter ++;
             this.victory ++;
-            if(this.victory === 4){
+            if(this.victory === 5){
                 $state.go('victory');
                 this.counter = 0;
                 this.question = $sce.trustAsHtml(this.allTheQuestions[this.counter].question);
