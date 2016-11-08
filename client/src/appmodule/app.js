@@ -1,4 +1,4 @@
-
+//asdf
 
 var routerApp = angular.module('routerApp', ['ui.router'])
 
@@ -25,7 +25,6 @@ var routerApp = angular.module('routerApp', ['ui.router'])
             url: '/death',
             templateUrl: '../../templates/death/death.html'
         })
-
 });
 
 routerApp.controller('MainpageController', function($http, $state, $sce){

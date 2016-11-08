@@ -1,5 +1,7 @@
 'use strict';
 
+//asdf
+
 var routerApp = angular.module('routerApp', ['ui.router']).config(function ($stateProvider, $urlRouterProvider) {
 
     $urlRouterProvider.otherwise('/quiz');
