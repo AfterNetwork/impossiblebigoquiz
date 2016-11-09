@@ -1,0 +1,15 @@
+<div ng-controller="BigOController as bigo">
+  <div class = "row">
+    <center><h1>The Big O Quiz</h1></center>
+    <div class="jumbotron questionBox col-lg-6 col-lg-offset-3">
+      <p ng-bind-html = 'bigo.question'>{{bigo.question}} </p>
+    </div>
+  </div>
+
+  <center><div>{{bigo.options}}</div></center>
+  <form ng-submit="bigo.submit()">
+    <center><input type='text' ng-model="bigo.text" name='text'></input></center>
+    <center><input type="submit" id='submit' value="Submit" /></center>
+  </form>
+  <center><pre>Your answer = {{bigo.text}}</pre></center>
+</div>

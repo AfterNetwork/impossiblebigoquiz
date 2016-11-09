@@ -1,7 +1,7 @@
 <!-- index.htmla -->
 
 <!DOCTYPE html>
-<html ng-app="routerApp">
+<html ng-app="quizApp">
 <head>
 
 
@@ -14,25 +14,20 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.8/angular-ui-router.min.js"></script>
 
-    <script src="src/appmodule/app.js"></script>
+
     <script src="dist/appmodule/app.js"></script>
+    <script src="dist/bigo/bigocontroller.js"></script>
 
 
 </head>
 
-<body ng-controller="MainpageController as main">
+<body>
 
 
 
 
 <div class="container">
     <div ui-view></div>
-    <div>
-      <form ng-submit="main.submit()">
-        <center><input type='text' ng-model="main.text" name='text'></input></center>
-        <center><input type="submit" id='submit' value="Submit" />
-    </div>
-        <center><pre>Your answer = {{main.text}}</pre></center>
 </div>
 
 </body>

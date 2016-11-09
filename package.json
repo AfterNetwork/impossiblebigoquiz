@@ -4,7 +4,7 @@
   "description": "",
   "main": "server.js",
   "watch": {
-    "build": "{src,build}/*.js"
+    "build": "{src, build}/**/*.js"
   },
   "scripts": {
     "start": "node server.js",
