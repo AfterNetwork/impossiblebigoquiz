@@ -4,9 +4,15 @@ angular.module('quizApp', ['ui.router'])
 
   .config(function($stateProvider, $urlRouterProvider) {
 
-    $urlRouterProvider.otherwise('/quiz');
+    $urlRouterProvider.otherwise('/home');
 
     $stateProvider
+
+        //homepage
+        .state('home', {
+            url:'/home',
+            templateUrl: '../../templates/homepage/index.html'
+        })
 
         //The Big O Quiz
         .state('quiz', {
