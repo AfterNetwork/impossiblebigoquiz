@@ -1,7 +1,7 @@
 //hdefffasdfasdf
 angular.module('quizApp')
   .controller('BigOController', function($http, $state, $sce){
-    this.options = "constant, linear, quadratic, logrithmic, or exponential";
+    this.options = "constant, linear, quadratic, logarithmic, n log n,  or exponential";
     this.allTheQuestions;
     this.question;
     $http.post('/questions')
@@ -19,7 +19,7 @@ angular.module('quizApp')
         if (this.answer === this.allTheQuestions[this.counter].answer){
             this.counter ++;
             this.victory ++;
-            if(this.victory === 5){
+            if(this.victory === 20){
                 $state.go('victory');
                 this.counter = 0;
                 this.question = $sce.trustAsHtml(this.allTheQuestions[this.counter].question);
