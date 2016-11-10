@@ -14,6 +14,11 @@ angular.module('quizApp', ['ui.router'])
             templateUrl: '../../templates/homepage/index.html'
         })
 
+        .state('jsquiz', {
+            url:'/jsquiz',
+            templateUrl: '../../templates/jsquiz/questions/index.html'
+        })
+
         //The Big O Quiz
         .state('quiz', {
             url: '/quiz',
