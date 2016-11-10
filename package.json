@@ -7,7 +7,7 @@
     "build": "{src, build}/**/*.js"
   },
   "scripts": {
-    "start": "node server.js",
+    "start": "node server/server.js",
     "build": "babel --presets es2015 client/src -d client/dist",
     "watch": "npm-watch"
   },
