@@ -13,11 +13,16 @@ app.use(bodyParser.json());
 app.use(express.static( __dirname + '/../client' ));
 
 
-//model and schema
+//models and schemas
 mongoose.model('questions', {questionnumber: Number,
                              question: String,
                              answer: String
                            });
+
+mongoose.model('jsquestions', {questionnumber: Number,
+                             question: String,
+                             answer: String
+                            });
 
 app.post('/questions', function(req, res){
   var question;
@@ -28,6 +33,12 @@ app.post('/questions', function(req, res){
 
   })
 
+})
+
+app.post('/jsquestions', function(req, res){
+  mongoose.model('jsquestions').find(function(err,ques){
+    res.json(ques);
+  })
 })
 
 
