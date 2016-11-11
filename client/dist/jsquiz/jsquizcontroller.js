@@ -20,7 +20,7 @@ angular.module('quizApp').controller('JSQuizController', function ($http, $state
         if (this.answer === this.allTheQuestions[this.counter].answer) {
             this.counter++;
             this.victory++;
-            if (this.victory === 1) {
+            if (this.victory === 10) {
                 $state.go('victory');
                 this.counter = 0;
                 this.question = $sce.trustAsHtml(this.allTheQuestions[this.counter].question);
