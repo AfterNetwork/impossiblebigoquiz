@@ -1,6 +1,5 @@
 'use strict';
 
-//asasdfasdfasdfasdf
 angular.module('quizApp', ['ui.router']).config(function ($stateProvider, $urlRouterProvider) {
 
     $urlRouterProvider.otherwise('/home');
