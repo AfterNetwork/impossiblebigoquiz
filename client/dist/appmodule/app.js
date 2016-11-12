@@ -11,6 +11,9 @@ angular.module('quizApp', ['ui.router']).config(function ($stateProvider, $urlRo
     .state('home', {
         url: '/home',
         templateUrl: '../../templates/homepage/index.html'
+    }).state('signin', {
+        url: '/signin',
+        templateUrl: '../../templates/signin/index.html'
     }).state('jsquiz', {
         url: '/jsquiz',
         templateUrl: '../../templates/jsquiz/questions/index.html'
