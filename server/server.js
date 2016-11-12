@@ -1,9 +1,9 @@
 
-var express = require('express');
+var express = require('../client/node_modules/express');
 var app = express();
-var bodyParser = require('body-parser')
+var bodyParser = require('../client/node_modules/body-parser')
 var port = process.env.PORT || 8080;
-var mongoose = require('mongoose');
+var mongoose = require('../client/node_modules/mongoose');
 var Schema = mongoose.Schema;
 
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/quicktest' );
@@ -11,7 +11,7 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/quicktest' );
 
 
 app.use(bodyParser.json());
-app.use(express.static( __dirname + '/../client' ));
+app.use(express.static(__dirname + '/../client' ));
 
 
 //models and schemas
