@@ -1,41 +1,31 @@
 
 var express = require('express');
 var app = express();
-var bodyParser = require('body-parser')
+var bodyParser = require('body-parser');
+var morgan = require('morgan');
 var port = process.env.PORT || 8080;
 var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
+var jwt = require('jsonwebtoken');
+var config = require('./config.js')
+var Users = require('./models/newuser.js');
+var Questions = require('./models/questions.js');
+var JsQuestions = require('./models/jsquestions.js');
 
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/quicktest' );
+mongoose.connect(config.database);
+app.set('superSecret', config.secret);
 
 
-
+app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 app.use(express.static(__dirname + '/../client' ));
 
 
-//models and schemas
-mongoose.model('questions', {questionnumber: Number,
-                             question: String,
-                             answer: String
-                           });
 
-mongoose.model('jsquestions', {questionnumber: Number,
-                             question: String,
-                             answer: String
-                            });
 
-var newuser = mongoose.model('users', {
-                         username: {
-                         type: String,
-                         require: true
-                         // unique: true
-                         },
-                         password: {
-                         type: String,
-                         require: true
-                       }
-});
+
+
+
+
 
 //request handlers
 
@@ -63,13 +53,16 @@ app.post('/jsquestions', function(req, res){
 
 app.post('/users', function(req, res){
   var user = req.body.username;
+  console.log(user);
   var password = req.body.password;
-  newuser.create({username: user, password: password}, function (err, user) {
-    if (err) console.log(err);
-  })
-  // mongoose.model('users').insert('user');
-  res.json('got it');
-})
+  var newUser = new Users({ username: user, password: password });
+  newUser.save(function (err) {
+    if (err) throw(err);
+    res.json('got it');
+  });
+});
+
+
 
 app.listen(port, function(){
   console.log('listening on port ' + port);
