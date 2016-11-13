@@ -10,6 +10,9 @@ var config = require('./config.js')
 var Users = require('./models/newuser.js');
 var Questions = require('./models/questions.js');
 var JsQuestions = require('./models/jsquestions.js');
+var specialRoutes = express.Router();
+
+
 
 mongoose.connect(config.database);
 app.set('superSecret', config.secret);
@@ -18,6 +21,7 @@ app.set('superSecret', config.secret);
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 app.use(express.static(__dirname + '/../client' ));
+app.use('/special', specialRoutes);
 
 
 
@@ -62,7 +66,69 @@ app.post('/users', function(req, res){
   });
 });
 
+//test authentication routes
 
+
+
+specialRoutes.post('/authenticate', function(req, res){
+  Users.findOne({
+    username: req.body.username
+  }, function(err, user) {
+    if (err) throw err;
+    if(!user) {
+      res.json({success: false, message:'You aint in here'});
+    }
+    else if (user) {
+      if (user.password !== req.body.password) {
+        res.json({sucess: false, message:"Wrong password"});
+      }
+    else{
+      var token = jwt.sign(user, app.get('superSecret'), {
+        expiresIn: 14400
+      });
+
+    res.json({
+      success: true,
+      message: "Enjoy B",
+      token: token
+    });
+  }
+
+}
+  });
+});
+//begin lock up
+
+specialRoutes.use(function(req, res, next) {
+  var token = req.body.token || req.query.token || req.headers['x-access-token'];
+
+  if (token) {
+    jwt.verify(token, app.get('superSecret'), function(err, decoded) {
+      if (err) {
+        return res.json({ success: false, message: 'Failed to authenticate token.' });
+      }
+      else{
+        req.decoded = decoded;
+        next();
+      }
+    });
+  }
+  else{
+    return res.status(403).send({
+      success: false,
+      message: 'No token provided.'
+    });
+  }
+});
+
+//This is the test route I want to lock up
+specialRoutes.get('/test', function(req, res){
+  res.json({message: 'This is your test, good job!'});
+});
+
+
+
+//end test
 
 app.listen(port, function(){
   console.log('listening on port ' + port);
