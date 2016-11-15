@@ -11,8 +11,7 @@
 
 
 
-    <!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.8/angular-ui-router.min.js"></script> -->
+
 
     <script src="lib/angular/angular.js"></script>
     <script src="lib/angular-ui-router/release/angular-ui-router.js"></script>
@@ -22,14 +21,16 @@
     <script src="dist/jsquiz/jsquizcontroller.js"></script>
     <script src="dist/signin/signincontroller.js"></script>
     <script src="dist/signup/signupcontroller.js"></script>
-
+    <script src="dist/signout/signoutcontroller.js"></script>
 
 
 
 </head>
 
 <body>
-
+<div ng-controller="SignOutController as signout">
+<button ng-click='signout.out()'>Sign out</button>
+</div>
 
 
 
