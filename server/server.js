@@ -70,7 +70,7 @@ app.post('/users', function(req, res){
 
 
 
-specialRoutes.post('/authenticate', function(req, res){
+app.post('/authenticate', function(req, res){
   Users.findOne({
     username: req.body.username
   }, function(err, user) {
@@ -99,7 +99,7 @@ specialRoutes.post('/authenticate', function(req, res){
 });
 //begin lock up
 
-specialRoutes.use(function(req, res, next) {
+app.use(function(req, res, next) {
   var token = req.body.token
 
   if (token) {
@@ -122,7 +122,7 @@ specialRoutes.use(function(req, res, next) {
 });
 
 //This is the test route I want to lock up
-specialRoutes.post('/test', function(req, res){
+app.post('/test', function(req, res){
   res.json({message: 'shoot'});
 });
 

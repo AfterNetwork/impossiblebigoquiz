@@ -4,14 +4,14 @@ angular.module('quizApp')
     this.password;
     this.token=""
     this.submit = function(){
-      $http.post('/special/authenticate', {username: this.user, password: this.password})
+      $http.post('/authenticate', {username: this.user, password: this.password})
         .then((res) => {
             $window.localStorage.accessToken = res.data.token;
 
 
           });
 
-      $http.post('/special/test', {token:$window.localStorage.accessToken})
+      $http.post('/test', {token:$window.localStorage.accessToken})
         .then((res) => {
           console.log(res.data.message);
         });
