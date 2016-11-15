@@ -100,7 +100,7 @@ specialRoutes.post('/authenticate', function(req, res){
 //begin lock up
 
 specialRoutes.use(function(req, res, next) {
-  var token = req.body.token || req.query.token || req.headers['x-access-token'];
+  var token = req.body.token
 
   if (token) {
     jwt.verify(token, app.get('superSecret'), function(err, decoded) {
@@ -122,8 +122,8 @@ specialRoutes.use(function(req, res, next) {
 });
 
 //This is the test route I want to lock up
-specialRoutes.get('/test', function(req, res){
-  res.json({message: 'This is your test, good job!'});
+specialRoutes.post('/test', function(req, res){
+  res.json({message: 'shoot'});
 });
 
 

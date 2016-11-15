@@ -1,11 +1,24 @@
 angular.module('quizApp')
-  .controller('SignInController', function($http){
+  .controller('SignInController', function($http, $state, $window){
     this.user;
     this.password;
+    this.token=""
     this.submit = function(){
-      console.log(this.user, this.password);
-      $http.post('/users', {username: this.user, password: this.password});
+      $http.post('/special/authenticate', {username: this.user, password: this.password})
+        .then((res) => {
+            $window.localStorage.accessToken = res.data.token;
+
+
+          });
+
+      $http.post('/special/test', {token:$window.localStorage.accessToken})
+        .then((res) => {
+          console.log(res.data.message);
+        });
+
       this.user = '';
       this.password='';
+      $state.go('home');
     }
+
   });
