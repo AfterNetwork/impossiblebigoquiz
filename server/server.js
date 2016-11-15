@@ -10,7 +10,7 @@ var config = require('./config.js')
 var Users = require('./models/newuser.js');
 var Questions = require('./models/questions.js');
 var JsQuestions = require('./models/jsquestions.js');
-var specialRoutes = express.Router();
+// var specialRoutes = express.Router();
 
 
 
@@ -21,7 +21,7 @@ app.set('superSecret', config.secret);
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 app.use(express.static(__dirname + '/../client' ));
-app.use('/special', specialRoutes);
+// app.use('/special', specialRoutes);
 
 
 
