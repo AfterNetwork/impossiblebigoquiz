@@ -14,6 +14,11 @@ angular.module('quizApp', ['ui.router'])
             templateUrl: '../../templates/homepage/index.html'
         })
 
+        .state('signin', {
+            url:'/signin',
+            templateUrl: '../../templates/signin/index.html'
+        })
+
         .state('signup', {
             url:'/signup',
             templateUrl: '../../templates/signup/index.html'
@@ -39,6 +44,7 @@ angular.module('quizApp', ['ui.router'])
             url: '/death',
             templateUrl: '../../templates/death/death.html'
         })
+
 })
 
 
