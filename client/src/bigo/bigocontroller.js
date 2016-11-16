@@ -1,10 +1,10 @@
 //hdefffasdfasdf
 angular.module('quizApp')
-  .controller('BigOController', function($http, $state, $sce){
+  .controller('BigOController', function($http, $state, $sce, $window){
     this.options = "constant, linear, quadratic, logarithmic, n log n,  or exponential";
     this.allTheQuestions;
     this.question;
-    $http.post('/questions')
+    $http.post('/questions', {token:$window.localStorage.accessToken})
       .then((res) => {
         this.allTheQuestions = res.data;
         this.question = $sce.trustAsHtml(this.allTheQuestions[this.counter].question);

@@ -1,13 +1,13 @@
 'use strict';
 
 //hdefffasdfasdf
-angular.module('quizApp').controller('BigOController', function ($http, $state, $sce) {
+angular.module('quizApp').controller('BigOController', function ($http, $state, $sce, $window) {
     var _this = this;
 
     this.options = "constant, linear, quadratic, logarithmic, n log n,  or exponential";
     this.allTheQuestions;
     this.question;
-    $http.post('/questions').then(function (res) {
+    $http.post('/questions', { token: $window.localStorage.accessToken }).then(function (res) {
         _this.allTheQuestions = res.data;
         _this.question = $sce.trustAsHtml(_this.allTheQuestions[_this.counter].question);
     });

@@ -27,34 +27,6 @@ app.use(express.static(__dirname + '/../client' ));
 
 
 
-
-
-
-
-//request handlers
-
-//gets questions and answers for bio quiz
-app.post('/questions', function(req, res){
-  var question;
-  mongoose.model('questions').find(function(err,ques){
-
-    res.json(ques);
-
-
-  })
-
-})
-
-//gets questions and answer for js quiz
-app.post('/jsquestions', function(req, res){
-  mongoose.model('jsquestions').find(function(err,ques){
-    res.json(ques);
-  })
-})
-
-
-//post new usernames and passwords
-
 app.post('/users', function(req, res){
   var user = req.body.username;
   console.log(user);
@@ -121,18 +93,37 @@ app.use(function(req, res, next) {
   }
 });
 
-//This is also just for testing
-app.post('/hometry', function(req, res){
-  res.json({message:'yeah'});
+
+
+
+
+
+
+
+
+
+//request handlers
+
+//gets questions and answers for bio quiz
+app.post('/questions', function(req, res){
+  var question;
+  mongoose.model('questions').find(function(err,ques){
+
+    res.json(ques);
+
+
+  })
+
 })
-//This is the test route I want to lock up
-app.post('/test', function(req, res){
-  res.json({message: 'shoot'});
-});
+
+//gets questions and answer for js quiz
+app.post('/jsquestions', function(req, res){
+  mongoose.model('jsquestions').find(function(err,ques){
+    res.json(ques);
+  })
+})
 
 
-
-//end test
 
 app.listen(port, function(){
   console.log('listening on port ' + port);
