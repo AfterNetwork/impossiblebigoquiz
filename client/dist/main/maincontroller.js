@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('quizApp').controller('SignOutController', function ($window) {
+angular.module('quizApp').controller('MainController', function ($window) {
 
   this.out = function () {
 
