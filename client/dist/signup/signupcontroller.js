@@ -8,5 +8,6 @@ angular.module('quizApp').controller('SignUpController', function ($http) {
     $http.post('/users', { username: this.user, password: this.password });
     this.user = '';
     this.password = '';
+    $state.go('signin');
   };
 });

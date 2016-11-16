@@ -7,5 +7,6 @@ angular.module('quizApp')
       $http.post('/users', {username: this.user, password: this.password});
       this.user = '';
       this.password='';
+      $state.go('signin');
     }
   });
