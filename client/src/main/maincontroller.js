@@ -1,5 +1,5 @@
 angular.module('quizApp')
-  .controller('SignOutController', function($window){
+  .controller('MainController', function($window){
 
     this.out = function(){
 

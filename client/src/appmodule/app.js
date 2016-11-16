@@ -10,8 +10,8 @@ angular.module('quizApp', ['ui.router'])
 
         //homepage
         .state('home', {
-            url:'/home',
-            templateUrl: '../../templates/homepage/index.html'
+            url: '/home',
+            templateUrl: '../../templates/homepage/index.html',
         })
 
         .state('signin', {

@@ -121,6 +121,10 @@ app.use(function(req, res, next) {
   }
 });
 
+//This is also just for testing
+app.post('/hometry', function(req, res){
+  res.json({message:'yeah'});
+})
 //This is the test route I want to lock up
 app.post('/test', function(req, res){
   res.json({message: 'shoot'});
