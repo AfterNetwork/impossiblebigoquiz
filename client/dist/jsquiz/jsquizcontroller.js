@@ -6,7 +6,7 @@ angular.module('quizApp').controller('JSQuizController', function ($http, $state
     this.options = "type the exact expected output";
     this.allTheQuestions;
     this.question;
-    $http.post('/jsquestions').then(function (res) {
+    $http.post('/jsquestions', { token: $window.localStorage.accessToken }).then(function (res) {
         _this.allTheQuestions = res.data;
         _this.question = $sce.trustAsHtml(_this.allTheQuestions[_this.counter].question);
     });
