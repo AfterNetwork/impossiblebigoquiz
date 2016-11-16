@@ -8,6 +8,8 @@ angular.module('quizApp')
       .then((res) => {
         this.allTheQuestions = res.data;
         this.question = $sce.trustAsHtml(this.allTheQuestions[this.counter].question);
+      },(res) => {
+        $state.go('signin');
       });
     this.victory = 0;
     this.counter = 0;
