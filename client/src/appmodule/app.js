@@ -4,7 +4,7 @@ angular.module('quizApp', ['ui.router'])
 
   .config(function($stateProvider, $urlRouterProvider) {
 
-    $urlRouterProvider.otherwise('/home');
+    $urlRouterProvider.otherwise('/signin');
 
     $stateProvider
 
