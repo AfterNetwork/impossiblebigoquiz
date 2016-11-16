@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('quizApp').controller('JSQuizController', function ($http, $state, $sce) {
+angular.module('quizApp').controller('JSQuizController', function ($http, $state, $sce, $window) {
     var _this = this;
 
     this.options = "type the exact expected output";
