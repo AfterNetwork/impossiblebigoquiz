@@ -22,7 +22,12 @@ angular.module('quizApp')
             this.counter ++;
             this.victory ++;
             if(this.victory === 20){
-                //put request needs to go here//
+                $http.post('/addmedal', {token:$window.localStorage.accessToken, medal:'bigopenguin'})
+                      .then((res) => {
+
+                      });
+
+
                 $state.go('victory');
                 this.counter = 0;
                 this.question = $sce.trustAsHtml(this.allTheQuestions[this.counter].question);

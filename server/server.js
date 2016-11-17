@@ -145,7 +145,14 @@ app.post('/jsquestions', function(req, res){
   })
 })
 
+app.post('/addmedal', function(req, res){
+  var token = req.body.token;
+  var medal = req.body.medal
 
+  Users.findOneAndUpdate({token: token}, {$push:{medals : medal}}, function (err, user){
+    if (err) throw err;
+  })
+})
 
 app.listen(port, function(){
   console.log('listening on port ' + port);
