@@ -23,7 +23,7 @@ angular.module('quizApp').controller('BigOController', function ($http, $state, 
     if (this.answer === this.allTheQuestions[this.counter].answer) {
       this.counter++;
       this.victory++;
-      if (this.victory === 2) {
+      if (this.victory === 20) {
         $http.post('/addmedal', { token: $window.localStorage.accessToken, medal: 'bigopenguin' }).then(function (res) {});
 
         $state.go('victory');
