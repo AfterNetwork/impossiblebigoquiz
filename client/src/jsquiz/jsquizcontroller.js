@@ -21,7 +21,7 @@ angular.module('quizApp')
             this.counter ++;
             this.victory ++;
             if(this.victory === 10){
-                $http.post('/addmedal', {token:$window.localStorage.accessToken, medal:'bigopenguin'})
+                $http.post('/addmedal', {token:$window.localStorage.accessToken, medal:'jsfox'})
                       .then((res) => {
 
                       });
