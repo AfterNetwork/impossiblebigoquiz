@@ -7,10 +7,11 @@ angular.module('quizApp')
       $http.post('/authenticate', {username: this.user, password: this.password})
         .then((res) => {
             $window.localStorage.accessToken = res.data.token;
+            $state.go('home');
           });
       this.user = '';
       this.password='';
-      $state.go('home');
+
     }
 
   });
