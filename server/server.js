@@ -84,36 +84,7 @@ app.post('/authenticate', function(req, res){
 
 
 
-// back up
-// app.post('/authenticate', function(req, res){
-//   Users.findOne({
-//     username: req.body.username
-//   }, function(err, user) {
-//     if (err) throw err;
-//     if(!user) {
-//       res.json({success: false, message:'You aint in here'});
-//     }
-//     else if (user) {
-//       if (user.password !== req.body.password) {
-//         res.json({sucess: false, message:"Wrong password"});
-//       }
-//     else{
-//       var token = jwt.sign(user, app.get('superSecret'), {
-//         expiresIn: 14400
-//       });
 
-//     res.json({
-//       success: true,
-//       message: "Enjoy B",
-//       token: token
-//     });
-//   }
-
-//   }
-//   });
-// });
-
-//back up
 
 
 //begin lock up

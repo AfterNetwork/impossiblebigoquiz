@@ -10,5 +10,6 @@ module.exports = mongoose.model('Users', new Schema ({
                          password: {
                          type: String,
                          require: true
-                       }
+                       },
+                         medals: []
 }));
