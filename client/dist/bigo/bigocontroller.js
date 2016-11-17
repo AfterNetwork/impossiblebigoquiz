@@ -24,6 +24,7 @@ angular.module('quizApp').controller('BigOController', function ($http, $state, 
       this.counter++;
       this.victory++;
       if (this.victory === 20) {
+        //put request needs to go here//
         $state.go('victory');
         this.counter = 0;
         this.question = $sce.trustAsHtml(this.allTheQuestions[this.counter].question);
