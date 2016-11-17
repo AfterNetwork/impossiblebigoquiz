@@ -23,8 +23,9 @@ angular.module('quizApp').controller('BigOController', function ($http, $state, 
     if (this.answer === this.allTheQuestions[this.counter].answer) {
       this.counter++;
       this.victory++;
-      if (this.victory === 20) {
-        //put request needs to go here//
+      if (this.victory === 2) {
+        $http.post('/addmedal', { token: $window.localStorage.accessToken, medal: 'bigopenguin' }).then(function (res) {});
+
         $state.go('victory');
         this.counter = 0;
         this.question = $sce.trustAsHtml(this.allTheQuestions[this.counter].question);
