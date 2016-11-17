@@ -35,7 +35,7 @@ app.post('/users', function(req, res){
   bcrypt.genSalt(10, function(err, salt) {
     bcrypt.hash(password, salt, function(err, hash) {
       passForDb = hash;
-      var newUser = new Users({ username: user, password: passForDb });
+      var newUser = new Users({ username: user, password: passForDb, token: "" });
       newUser.save(function (err) {
         if (err) throw(err);
         res.json('got it');
@@ -66,9 +66,13 @@ app.post('/authenticate', function(req, res){
       }
     else{
       var token = jwt.sign(user, app.get('superSecret'), {
-        expiresIn: 14400
-      });
+        expiresIn: 1400
 
+      });
+      user.token = token;
+      user.save(function(err){
+        if (err) throw err;
+      });
     res.json({
       success: true,
       message: "Enjoy B",
