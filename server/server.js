@@ -47,23 +47,12 @@ app.post('/users', function(req, res){
 
 
 
-// a copy of users before you destroyed it
 
-// app.post('/users', function(req, res){
-//   var user = req.body.username;
-//   console.log(user);
-//   var password = req.body.password;
-//   var newUser = new Users({ username: user, password: password });
-//   newUser.save(function (err) {
-//     if (err) throw(err);
-//     res.json('got it');
-//   });
-// });
 //test authentication routes
 
-
-
 app.post('/authenticate', function(req, res){
+  var salt = bcrypt.genSaltSync(10);
+  var hash = bcrypt.hashSync(req.body.password, salt);
   Users.findOne({
     username: req.body.username
   }, function(err, user) {
@@ -72,7 +61,7 @@ app.post('/authenticate', function(req, res){
       res.json({success: false, message:'You aint in here'});
     }
     else if (user) {
-      if (user.password !== req.body.password) {
+      if (bcrypt.compareSync(hash, user.password)) {
         res.json({sucess: false, message:"Wrong password"});
       }
     else{
@@ -87,9 +76,46 @@ app.post('/authenticate', function(req, res){
     });
   }
 
-}
+  }
   });
 });
+
+
+
+
+
+// back up
+// app.post('/authenticate', function(req, res){
+//   Users.findOne({
+//     username: req.body.username
+//   }, function(err, user) {
+//     if (err) throw err;
+//     if(!user) {
+//       res.json({success: false, message:'You aint in here'});
+//     }
+//     else if (user) {
+//       if (user.password !== req.body.password) {
+//         res.json({sucess: false, message:"Wrong password"});
+//       }
+//     else{
+//       var token = jwt.sign(user, app.get('superSecret'), {
+//         expiresIn: 14400
+//       });
+
+//     res.json({
+//       success: true,
+//       message: "Enjoy B",
+//       token: token
+//     });
+//   }
+
+//   }
+//   });
+// });
+
+//back up
+
+
 //begin lock up
 
 app.use(function(req, res, next) {
