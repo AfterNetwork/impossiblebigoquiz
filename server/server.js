@@ -30,15 +30,35 @@ app.use(express.static(__dirname + '/../client' ));
 
 app.post('/users', function(req, res){
   var user = req.body.username;
-  console.log(user);
   var password = req.body.password;
-  var newUser = new Users({ username: user, password: password });
-  newUser.save(function (err) {
-    if (err) throw(err);
-    res.json('got it');
+  var passForDb = "";
+  bcrypt.genSalt(10, function(err, salt) {
+    bcrypt.hash(password, salt, function(err, hash) {
+      passForDb = hash;
+      var newUser = new Users({ username: user, password: passForDb });
+      newUser.save(function (err) {
+        if (err) throw(err);
+        res.json('got it');
+    });
+  });
+
   });
 });
 
+
+
+// a copy of users before you destroyed it
+
+// app.post('/users', function(req, res){
+//   var user = req.body.username;
+//   console.log(user);
+//   var password = req.body.password;
+//   var newUser = new Users({ username: user, password: password });
+//   newUser.save(function (err) {
+//     if (err) throw(err);
+//     res.json('got it');
+//   });
+// });
 //test authentication routes
 
 
