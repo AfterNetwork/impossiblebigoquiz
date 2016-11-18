@@ -1,10 +1,10 @@
 <div ng-controller="SignUpController as signup">
     <center><h1 class="logo">const = codeprep</h1></center>
     <div class="jumbotron col-lg-6 col-lg-offset-3">
-
+      <p>Enter a username and password below to create an account</p>
       <form ng-submit="signup.submit()">
-        <center><input type='text' ng-model="signup.user" name='text'></input></center>
-        <center><input type='text' ng-model="signup.password" name='text'></input></center>
+        <center><input type='text' ng-model="signup.user" name='text'>username</input></center>
+        <center><input type='text' ng-model="signup.password" name='text'>password</input></center>
         <center><input type="submit" id='submit' value="Submit" /></center>
       </form>
 
