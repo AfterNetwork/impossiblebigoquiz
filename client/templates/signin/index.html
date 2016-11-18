@@ -1,14 +1,20 @@
 <div ng-controller="SignInController as sign">
     <center><h1>constcodeprep</h1></center>
-    <div class="jumbotron questionBox col-lg-6 col-lg-offset-3">
 
-      <form ng-submit="sign.submit()">
-        <center><input type='text' ng-model="sign.user" name='text'></input></center>
-        <center><input type='text' ng-model="sign.password" name='text'></input></center>
-        <center><input type="submit" id='submit' value="Submit" /></center>
+
+
+    <form class = "form-signin" ng-submit="sign.submit()">
+        <h2 class="form-signin-heading">Create a new user</h2>
+        <label for="inputUser" class="sr-only">User Name</label>
+        <input type='test' id="inputUser" class="form-control" placeholder="username" ng-model="sign.user" name='text' required autofocus></input>
+        <label for="inputPass" class="sr-only">User Name</label>
+        <input type='text' id="inputPass" class="form-control" placeholder="password" ng-model="sign.password" name='text' required></input>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Create</button>
       </form>
 
-    </div>
+
+
     <center>Or sign up</center><br>
     <center><button ui-sref="signup">Create an account</button></center>
 </div>
+
