@@ -7,10 +7,21 @@
   color: blue;
 }
 
-html, body{
-  border: 2px solid blue;
-  height:100%;
+.container{
+  max-width: 730px;
 }
+
+html, body {
+  height:100%;
+  background: url(background.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+
+
 .jumbotron {
     background-color: mediumaquamarine !important;
 }
@@ -48,5 +59,10 @@ html, body{
   margin-bottom: 10px;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
+}
+
+.form-signin-heading{
+  color: papayawhip;
+  font-weight: bold;
 }
 
