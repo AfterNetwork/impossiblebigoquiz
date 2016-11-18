@@ -5,6 +5,7 @@ angular.module('quizApp').controller('MainController', function ($http, $state, 
 
   authCheck.auth();
   this.penguin = false;
+  this.fox = false;
   this.out = function () {
 
     $window.localStorage.accessToken = '';
@@ -16,6 +17,9 @@ angular.module('quizApp').controller('MainController', function ($http, $state, 
     medals.forEach(function (item) {
       if (item === 'bigopenguin') {
         _this.penguin = true;
+      }
+      if (item === 'jsfox') {
+        _this.fox = true;
       }
     });
   });
