@@ -2,6 +2,7 @@ angular.module('quizApp')
   .controller('MainController', function($http, $state, $window, authCheck){
     authCheck.auth();
     this.penguin = false;
+    this.fox = false;
     this.out = function(){
 
             $window.localStorage.accessToken = '';
@@ -14,6 +15,9 @@ angular.module('quizApp')
           medals.forEach((item) => {
             if(item === 'bigopenguin'){
               this.penguin = true;
+            }
+            if(item === 'jsfox'){
+              this.fox = true;
             }
           })
        })
