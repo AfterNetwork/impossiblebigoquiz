@@ -1,10 +1,12 @@
 
 angular.module('quizApp', ['ui.router'])
 
-  .run(function($rootScope) {
+  .run(function($rootScope, getUserName) {
     $rootScope.bg = true;
     $rootScope.penguin = false;
     $rootScope.fox = false;
+    $rootScope.currentUser = "";
+    getUserName.getUser();
 })
 
 

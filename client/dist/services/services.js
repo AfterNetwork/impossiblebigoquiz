@@ -10,7 +10,7 @@ angular.module('quizApp').service('authCheck', function ($http, $state, $window,
   };
 }).service('getMedals', function ($http, $window, $rootScope) {
   this.medals = function () {
-    $http.post('/getmedal', { token: $window.localStorage.accessToken, username: $rootScope.username }).then(function (res) {
+    $http.post('/getmedal', { token: $window.localStorage.accessToken }).then(function (res) {
       console.log(res.data);
       var medals = res.data;
       medals.forEach(function (item) {
@@ -21,6 +21,12 @@ angular.module('quizApp').service('authCheck', function ($http, $state, $window,
           $rootScope.fox = true;
         }
       });
+    });
+  };
+}).service('getUserName', function ($http, $window, $rootScope) {
+  this.getUser = function () {
+    $http.post('/getusername', { token: $window.localStorage.accessToken }).then(function (res) {
+      $rootScope.currentUser = res.data;
     });
   };
 });

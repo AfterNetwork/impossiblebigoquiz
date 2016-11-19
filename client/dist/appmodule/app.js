@@ -1,9 +1,11 @@
 'use strict';
 
-angular.module('quizApp', ['ui.router']).run(function ($rootScope) {
+angular.module('quizApp', ['ui.router']).run(function ($rootScope, getUserName) {
     $rootScope.bg = true;
     $rootScope.penguin = false;
     $rootScope.fox = false;
+    $rootScope.currentUser = "";
+    getUserName.getUser();
 }).config(function ($stateProvider, $urlRouterProvider) {
 
     $urlRouterProvider.otherwise('/signin');

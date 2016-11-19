@@ -152,22 +152,29 @@ app.post('/jsquestions', function(req, res){
 })
 
 app.post('/addmedal', function(req, res){
-  var username = req.body.username;
+  var token = req.body.token;
   var medal = req.body.medal
 
-  Users.findOneAndUpdate({username: username}, {$push:{medals : medal}}, function (err, user){
+  Users.findOneAndUpdate({token: token}, {$push:{medals : medal}}, function (err, user){
     if (err) throw err;
   })
 })
 
 app.post('/getmedal', function(req, res) {
-  var username = req.body.username;
-  Users.findOne({username: username}, function(err, user){
+  var token = req.body.token;
+  Users.findOne({token: token}, function(err, user){
     if (err) throw err;
     res.json(user.medals);
   })
 })
 
+app.post('/getusername', function(req, res) {
+  var token = req.body.token;
+  Users.findOne({token: token}, function(err, user){
+    if (err) throw err;
+    res.json(user.username);
+  })
+})
 
 app.listen(port, function(){
   console.log('listening on port ' + port);
