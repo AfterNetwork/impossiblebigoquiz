@@ -11,7 +11,7 @@ angular.module('quizApp')
   })
   .service('getMedals', function($http, $window, $rootScope){
       this.medals = function(){
-        $http.post('/getmedal', {token:$window.localStorage.accessToken})
+        $http.post('/getmedal', {token:$window.localStorage.accessToken, username:$rootScope.username})
          .then((res) => {
            console.log(res.data);
            var medals = res.data;

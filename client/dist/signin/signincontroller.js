@@ -10,9 +10,11 @@ angular.module('quizApp').controller('SignInController', function ($http, $state
     $rootScope.bg = false;
   }, function (res) {});
   this.submit = function () {
+    $rootScope.username = this.user;
     $http.post('/authenticate', { username: this.user, password: this.password }).then(function (res) {
       $window.localStorage.accessToken = res.data.token;
       $rootScope.bg = false;
+
       $state.go('home');
     });
     this.user = '';

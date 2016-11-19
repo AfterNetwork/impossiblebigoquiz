@@ -12,5 +12,5 @@ module.exports = mongoose.model('Users', new Schema ({
                          require: true
                        },
                          medals: [String],
-                         token: String
+
 }));
