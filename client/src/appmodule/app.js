@@ -21,6 +21,11 @@ angular.module('quizApp', ['ui.router'])
             css: '../../content/css.css'
         })
 
+        .state('profile', {
+            url: '/profile',
+            templateUrl: '../../templates/profile/index.html',
+            css: '../../content/css.css'
+        })
 
         .state('signin', {
             url:'/signin',

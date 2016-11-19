@@ -65,7 +65,7 @@ app.post('/authenticate', function(req, res){
         res.json({sucess: false, message:"Wrong password"});
       }
     else{
-      var token = jwt.sign(user, app.get('superSecret'), {
+      var token = jwt.sign({username: user.username}, app.get('superSecret'), {
         expiresIn: 1400
 
       });
@@ -76,14 +76,12 @@ app.post('/authenticate', function(req, res){
         token: token
       });
 
-      // user.token = undefined;
-      // user.save(function(err){
-      //   if (err) throw err;
-      // });
-      // user.token = token;
-      // user.save(function(err){
-      //   if (err) throw err;
-      // });
+      user.token = token;
+      user.save(function(err){
+        if (err) throw err;
+      });
+
+
 
 
   }

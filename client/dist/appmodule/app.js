@@ -15,6 +15,10 @@ angular.module('quizApp', ['ui.router']).run(function ($rootScope) {
         url: '/home',
         templateUrl: '../../templates/homepage/index.html',
         css: '../../content/css.css'
+    }).state('profile', {
+        url: '/profile',
+        templateUrl: '../../templates/profile/index.html',
+        css: '../../content/css.css'
     }).state('signin', {
         url: '/signin',
         templateUrl: '../../templates/signin/index.html',
