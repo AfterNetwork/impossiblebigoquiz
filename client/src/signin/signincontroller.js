@@ -12,15 +12,17 @@ angular.module('quizApp')
 
       });
     this.submit = function(){
+      $rootScope.username = this.user;
       $http.post('/authenticate', {username: this.user, password: this.password})
         .then((res) => {
             $window.localStorage.accessToken = res.data.token;
             $rootScope.bg = false;
+
             $state.go('home');
           });
       this.user = '';
       this.password='';
 
     }
-    console.log($rootScope.bg)
+
   });

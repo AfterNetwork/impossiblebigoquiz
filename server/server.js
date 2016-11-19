@@ -69,15 +69,23 @@ app.post('/authenticate', function(req, res){
         expiresIn: 1400
 
       });
-      user.token = token;
-      user.save(function(err){
-        if (err) throw err;
+
+      res.json({
+        success: true,
+        message: "Enjoy B",
+        token: token
       });
-    res.json({
-      success: true,
-      message: "Enjoy B",
-      token: token
-    });
+
+      // user.token = undefined;
+      // user.save(function(err){
+      //   if (err) throw err;
+      // });
+      // user.token = token;
+      // user.save(function(err){
+      //   if (err) throw err;
+      // });
+
+
   }
 
   }
@@ -146,17 +154,17 @@ app.post('/jsquestions', function(req, res){
 })
 
 app.post('/addmedal', function(req, res){
-  var token = req.body.token;
+  var username = req.body.username;
   var medal = req.body.medal
 
-  Users.findOneAndUpdate({token: token}, {$push:{medals : medal}}, function (err, user){
+  Users.findOneAndUpdate({username: username}, {$push:{medals : medal}}, function (err, user){
     if (err) throw err;
   })
 })
 
 app.post('/getmedal', function(req, res) {
-  var token = req.body.token;
-  Users.findOne({token: token}, function(err, user){
+  var username = req.body.username;
+  Users.findOne({username: username}, function(err, user){
     if (err) throw err;
     res.json(user.medals);
   })
