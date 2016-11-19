@@ -2,6 +2,8 @@
 
 angular.module('quizApp', ['ui.router']).run(function ($rootScope) {
     $rootScope.bg = true;
+    $rootScope.penguin = false;
+    $rootScope.fox = false;
 }).config(function ($stateProvider, $urlRouterProvider) {
 
     $urlRouterProvider.otherwise('/signin');
