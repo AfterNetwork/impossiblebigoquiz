@@ -22,5 +22,5 @@ angular.module('quizApp')
       this.password='';
 
     }
-    console.log($rootScope.bg)
+
   });

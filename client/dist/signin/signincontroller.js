@@ -18,5 +18,4 @@ angular.module('quizApp').controller('SignInController', function ($http, $state
     this.user = '';
     this.password = '';
   };
-  console.log($rootScope.bg);
 });

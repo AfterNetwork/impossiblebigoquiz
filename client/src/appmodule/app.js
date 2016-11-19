@@ -21,6 +21,7 @@ angular.module('quizApp', ['ui.router'])
             css: '../../content/css.css'
         })
 
+
         .state('signin', {
             url:'/signin',
             templateUrl: '../../templates/signin/index.html',
