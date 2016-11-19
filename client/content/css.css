@@ -11,7 +11,7 @@
   max-width: 730px;
 }
 
-#b1 {
+.b1 {
   height:100%;
   background: url(background.jpg) center center fixed;
   -webkit-background-size: cover;
@@ -20,11 +20,15 @@
   background-size: cover;
 }
 
-body {
+.b2 {
+
   background-color: papayawhip;
 }
 
-
+.footer {
+  position:fixed;
+  bottom:4px;
+}
 
 .jumbotron {
     background-color: mediumaquamarine !important;
@@ -68,5 +72,9 @@ body {
 .form-signin-heading{
   color: papayawhip;
   font-weight: bold;
+}
+
+.navbar-brand{
+  padding-top: 4px;
 }
 
