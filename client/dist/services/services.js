@@ -1,8 +1,10 @@
 'use strict';
 
-angular.module('quizApp').service('authCheck', function ($http, $state, $window) {
+angular.module('quizApp').service('authCheck', function ($http, $state, $window, $rootScope) {
   this.auth = function () {
-    $http.post('/questions', { token: $window.localStorage.accessToken }).then(function (res) {}, function (res) {
+    $http.post('/questions', { token: $window.localStorage.accessToken }).then(function (res) {
+      $rootScope.bg = false;
+    }, function (res) {
       $state.go('signin');
     });
   };
