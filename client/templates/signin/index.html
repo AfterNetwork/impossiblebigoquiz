@@ -1,20 +1,20 @@
 <div ng-controller="SignInController as sign">
-    <center><h1>constcodeprep</h1></center>
+    <div align="center"><img src="../../content/logo.png"></div>
 
 
 
     <form class = "form-signin" ng-submit="sign.submit()">
-        <h2 class="form-signin-heading">Create a new user</h2>
+        <div align="center"><h2 class="form-signin-heading">Sign in</h2></div>
         <label for="inputUser" class="sr-only">User Name</label>
         <input type='test' id="inputUser" class="form-control" placeholder="username" ng-model="sign.user" name='text' required autofocus></input>
         <label for="inputPass" class="sr-only">User Name</label>
         <input type='text' id="inputPass" class="form-control" placeholder="password" ng-model="sign.password" name='text' required></input>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Create</button>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
       </form>
 
 
 
-    <center>Or sign up</center><br>
-    <center><button ui-sref="signup">Create an account</button></center>
+    <center class="form-signin-heading">Or sign up</center><br>
+    <div align="center"><button ui-sref="signup">Create an account</div>
 </div>
 

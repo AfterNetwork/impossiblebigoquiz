@@ -1,6 +1,10 @@
 
 angular.module('quizApp', ['ui.router'])
 
+  .run(function($rootScope) {
+    $rootScope.bg = true;
+})
+
 
   .config(function($stateProvider, $urlRouterProvider) {
 

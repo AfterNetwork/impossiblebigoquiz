@@ -1,6 +1,8 @@
 'use strict';
 
-angular.module('quizApp', ['ui.router']).config(function ($stateProvider, $urlRouterProvider) {
+angular.module('quizApp', ['ui.router']).run(function ($rootScope) {
+    $rootScope.bg = true;
+}).config(function ($stateProvider, $urlRouterProvider) {
 
     $urlRouterProvider.otherwise('/signin');
 

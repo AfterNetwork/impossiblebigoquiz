@@ -1,10 +1,33 @@
 .answerList {
-  color: blue,
-  font-size: 24px
+  color: blue;
+  font-size: 24px;
 }
 
 .logo {
   color: blue;
+}
+
+.container{
+  max-width: 730px;
+}
+
+.b1 {
+  height:100%;
+  background: url(background.jpg) center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.b2 {
+
+  background-color: papayawhip;
+}
+
+.footer {
+  position:fixed;
+  bottom:4px;
 }
 
 .jumbotron {
@@ -44,5 +67,14 @@
   margin-bottom: 10px;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
+}
+
+.form-signin-heading{
+  color: papayawhip;
+  font-weight: bold;
+}
+
+.navbar-brand{
+  padding-top: 4px;
 }
 
