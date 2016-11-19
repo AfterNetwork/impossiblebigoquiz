@@ -11,7 +11,7 @@ angular.module('quizApp')
   })
   .service('getMedals', function($http, $window, $rootScope){
       this.medals = function(){
-        $http.post('/getmedal', {token:$window.localStorage.accessToken, username:$rootScope.username})
+        $http.post('/getmedal', {token:$window.localStorage.accessToken})
          .then((res) => {
            console.log(res.data);
            var medals = res.data;
@@ -25,4 +25,15 @@ angular.module('quizApp')
           })
        })
        }
-  })
+      })
+
+    .service('getUserName', function($http, $window, $rootScope){
+      this.getUser = function(){
+        $http.post('/getusername', {token:$window.localStorage.accessToken})
+         .then((res) => {
+           $rootScope.currentUser = res.data;
+          })
+       }
+    })
+
+

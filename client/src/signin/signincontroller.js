@@ -12,7 +12,6 @@ angular.module('quizApp')
 
       });
     this.submit = function(){
-      $rootScope.username = this.user;
       $http.post('/authenticate', {username: this.user, password: this.password})
         .then((res) => {
             $window.localStorage.accessToken = res.data.token;
