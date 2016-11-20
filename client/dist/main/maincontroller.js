@@ -5,6 +5,7 @@ angular.module('quizApp').controller('MainController', function ($http, $state, 
   this.out = function () {
 
     $window.localStorage.accessToken = '';
+    $state.go('signin');
   };
   getMedals.medals();
 });

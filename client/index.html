@@ -4,7 +4,7 @@
 <html ng-app="quizApp">
 <head>
 
-
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"> -->
 
 
@@ -31,6 +31,7 @@
     <script src="dist/main/maincontroller.js"></script>
     <script src="dist/profile/profilecontroller.js"></script>
     <script src="dist/services/services.js"></script>
+    <script src="dist/javascript/js.js"></script>
 
 
 
@@ -39,56 +40,54 @@
 
 <body ng-class="bg ? 'b1' : 'b2'" ng-cloak>
 <!-- begin nav bar -->
-
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" ui-sref="home"><img src='/content/logosmall.png' /></a>
-    </div>
-
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li class="active"><a ui-sref="home">Home <span class="sr-only">(current)</span></a></li>
-        <li><a ui-sref="profile">Profile</a></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Quizzes <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a ui-sref="quiz">Big O</a></li>
-            <li><a ui-sref="jsquiz">Java Script</a></li>
-          </ul>
-        </li>
-      </ul>
-        </li>
-      </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>
-
-
-
-<!-- end nav bar -->
 <div ng-controller="MainController as main">
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" ui-sref="home"><img src='/content/logosmall.png' /></a>
+      </div>
 
-<div ng-show = "penguin"><img src='/content/penguin.png' height="50" width="50" /></div>
-<div ng-show = "fox"><img src='/content/fox.png' height="50" width="50" /></div>
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li class="active"><a ui-sref="home">Home <span class="sr-only">(current)</span></a></li>
+          <li class="active"><a ui-sref="profile">Profile <span class="sr-only">(current)</span></a></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Quizzes <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a ui-sref="quiz">Big O</a></li>
+              <li><a ui-sref="jsquiz">Java Script</a></li>
+            </ul>
+          </li>
+        </ul>
+          </li>
+        </ul>
+        <button type="button" class="btn btn-danger navbar-btn navbar-right" ng-click='main.out()'>Sign out</button>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
+
+
 </div>
+<!-- end nav bar -->
+
+
+
+
 
 
 
 <div class="container">
     <div ui-view></div>
 </div>
-<div ng-controller="MainController as main">
-<center><button class="btn info footer" ng-click='main.out()'>Sign out</button></center>
-</div>
+
 </body>
 </html>
 
