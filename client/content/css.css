@@ -11,6 +11,11 @@
   max-width: 730px;
 }
 
+.behindJumbo{
+  height:100%;
+  background-color:lightyellow;
+}
+
 .b1 {
   height:100%;
   background: url(background.jpg) center center fixed;
@@ -21,8 +26,12 @@
 }
 
 .b2 {
-
-  background-color: papayawhip;
+  height:100%;
+  background: url(autumn.jpg) center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 .footer {

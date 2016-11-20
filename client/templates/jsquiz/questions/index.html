@@ -1,16 +1,17 @@
 <div ng-controller="JSQuizController as jsquiz">
-  <div class = "row">
-    <center><h1>The JS Quiz</h1></center>
-    <div class="jumbotron questionBox col-lg-6 col-lg-offset-3">
-      <p ng-bind-html = 'jsquiz.question'>{{jsquiz.question}} </p>
+  <div class="behindJumbo">
+    <div class = "row">
+      <div align="center"><h1>The JS Quiz</h1></div>
+      <div class="jumbotron questionBox col-lg-6 col-lg-offset-3">
+        <p ng-bind-html = 'jsquiz.question'>{{jsquiz.question}} </p>
+      </div>
     </div>
-  </div>
 
-  <center><div>{{jsquiz.options}}</div></center>
-  <form ng-submit="jsquiz.submit()">
-    <center><input type='text' ng-model="jsquiz.text" name='text'></input></center>
-    <center><input type="submit" id='submit' value="Submit" /></center>
-  </form>
-  <center><pre>Your answer = {{jsquiz.text}}</pre></center>
+    <div align="center">{{jsquiz.options}}</div>
+    <form ng-submit="jsquiz.submit()">
+      <div align="center"><input type='text' ng-model="jsquiz.text" name='text'></input></div>
+      <div align="center"><input type="submit" id='submit' value="Submit" /></div>
+    </form>
+    <div align="center"><pre>Your answer = {{jsquiz.text}}</pre></div>
+  <div class="behindJumbo">
 </div>
-<center><a ui-sref="home">Home</a></center>

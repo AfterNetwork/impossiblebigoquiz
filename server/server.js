@@ -75,7 +75,7 @@ app.post('/authenticate', function(req, res){
       }
     else{
       var token = jwt.sign({username: user.username}, app.get('superSecret'), {
-        expiresIn: 1400
+        expiresIn: "24h"
 
       });
 
