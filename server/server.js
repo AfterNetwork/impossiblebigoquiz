@@ -32,17 +32,26 @@ app.post('/users', function(req, res){
   var user = req.body.username;
   var password = req.body.password;
   var passForDb = "";
-  bcrypt.genSalt(10, function(err, salt) {
-    bcrypt.hash(password, salt, function(err, hash) {
-      passForDb = hash;
-      var newUser = new Users({ username: user, password: passForDb, token: "" });
-      newUser.save(function (err) {
-        if (err) throw(err);
-        res.json('got it');
-    });
-  });
+  Users.findOne({username: user}, function(err, check){
+    if (err) throw (err);
+    if(check){
+      res.json({duplicate: true})
+    }
+    if(!check){
+      bcrypt.genSalt(10, function(err, salt) {
+        bcrypt.hash(password, salt, function(err, hash) {
+          passForDb = hash;
+          var newUser = new Users({ username: user, password: passForDb,
+          token: "" });
+          newUser.save(function (err) {
+            if (err) throw(err);
+            res.json('got it');
+          });
+        });
 
-  });
+      });
+    }
+  })
 });
 
 
