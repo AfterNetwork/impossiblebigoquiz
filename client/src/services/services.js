@@ -3,9 +3,9 @@ angular.module('quizApp')
     this.auth = function() {
       $http.post('/banana', {token:$window.localStorage.accessToken})
       .then((res) => {
-        $rootScope.bg = false;
       })
       .catch((err) => {
+        $rootScope.bg = true;
         $state.go('signin');
       });
     }
