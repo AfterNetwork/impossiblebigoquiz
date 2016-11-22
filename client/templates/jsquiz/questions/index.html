@@ -3,15 +3,15 @@
     <div class = "row">
       <div align="center"><h1>The JS Quiz</h1></div>
       <div class="jumbotron questionBox col-lg-6 col-lg-offset-3">
-        <p ng-bind-html = 'jsquiz.question'>{{jsquiz.question}} </p>
+        <p ng-bind-html = 'jsquiz.question'></p>
       </div>
     </div>
 
-    <div align="center">{{jsquiz.options}}</div>
+    <div align="center" ng-bind="jsquiz.options"></div>
     <form ng-submit="jsquiz.submit()">
       <div align="center"><input type='text' ng-model="jsquiz.text" name='text'></input></div>
       <div align="center"><input type="submit" id='submit' value="Submit" /></div>
     </form>
-    <div align="center"><pre>Your answer = {{jsquiz.text}}</pre></div>
+    <div align="center" ><pre>Your answer = {{jsquiz.text}}</pre></div>
   <div class="behindJumbo">
 </div>
