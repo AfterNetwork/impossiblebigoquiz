@@ -10,7 +10,7 @@ angular.module('quizApp').controller('BigOController', function ($http, $state, 
   $http.post('/questions', { token: $window.localStorage.accessToken }).then(function (res) {
     _this.allTheQuestions = res.data;
     _this.question = $sce.trustAsHtml(_this.allTheQuestions[_this.counter].question);
-  }, function (res) {
+  }).catch(function (err) {
     $state.go('signin');
   });
   this.victory = 0;
