@@ -16,6 +16,17 @@
   background-color:lightyellow;
 }
 
+.replaceJumbo {
+  width:90%;
+  margin:auto;
+  margin-top:4px;
+  background-color: mediumaquamarine !important;
+  align:center;
+  font-size:20px;
+  font-weight: bold;
+
+}
+
 .b1 {
   height:100%;
   background: url(background.jpg) center center fixed;
