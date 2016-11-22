@@ -4,7 +4,8 @@ angular.module('quizApp')
       $http.post('/banana', {token:$window.localStorage.accessToken})
       .then((res) => {
         $rootScope.bg = false;
-      },(err) => {
+      })
+      .catch((err) => {
         $state.go('signin');
       });
     }
