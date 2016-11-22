@@ -2,9 +2,8 @@
 
 angular.module('quizApp').service('authCheck', function ($http, $state, $window, $rootScope) {
   this.auth = function () {
-    $http.post('/banana', { token: $window.localStorage.accessToken }).then(function (res) {
-      $rootScope.bg = false;
-    }).catch(function (err) {
+    $http.post('/banana', { token: $window.localStorage.accessToken }).then(function (res) {}).catch(function (err) {
+      $rootScope.bg = true;
       $state.go('signin');
     });
   };
