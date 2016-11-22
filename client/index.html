@@ -38,6 +38,8 @@
 
 </head>
 
+
+
 <body ng-class="bg ? 'b1' : 'b2'">
 <!-- begin nav bar -->
 <div ng-controller="MainController as main">
@@ -60,7 +62,7 @@
           <li><a ui-sref="home">Home <span class="sr-only">(current)</span></a></li>
           <li><a ui-sref="profile">Profile <span class="sr-only">(current)</span></a></li>
           <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Quizzes <span class="caret"></span></a>
+            <a  class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Quizzes <span class="caret"></span></a>
             <ul class="dropdown-menu">
               <li><a ui-sref="quiz">Big O</a></li>
               <li><a ui-sref="jsquiz">Java Script</a></li>
