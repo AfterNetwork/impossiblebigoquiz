@@ -5,10 +5,10 @@
         <h2 class="form-signin-heading">Create a new user</h2>
 
         <label for="inputUser" class="sr-only">User Name </label>
-        <input type='input' id="inputUser" class="form-control" placeholder="username (letters and numbers only)" ng-model="signup.user" name='text' pattern="[a-z0-9]+" required autofocus maxlength="15" ></input>
+        <input autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" type='input' id="inputUser" class="form-control" placeholder="username (letters and numbers only)" ng-model="signup.user" name='text' pattern="[a-z0-9]+" required autofocus maxlength="15" ></input>
 
         <label for="inputPass" class="sr-only">User Name</label>
-        <input type="password" id="inputPass" class="form-control" placeholder="password min 6, 1 cap, 1 small, 1 num" ng-model="signup.password" name='text' required maxlength="15" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" ></input>
+        <input autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" type="password" id="inputPass" class="form-control" placeholder="password min 6, 1 cap, 1 small, 1 num" ng-model="signup.password" name='text' required maxlength="15" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" ></input>
         <button class="btn btn-lg btn-primary btn-block" type="submit">Create</button>
       </form>
 

@@ -8,7 +8,7 @@
 
     <div align="center" ng-bind="jsquiz.options"></div>
     <form ng-submit="jsquiz.submit()">
-      <div align="center"><input type='text' ng-model="jsquiz.text" name='text'></input></div>
+      <div align="center"><input autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" type='text' ng-model="jsquiz.text" name='text'></input></div>
       <div align="center"><input type="submit" id='submit' value="Submit" /></div>
     </form>
     <div align="center" ><pre>Your answer = {{jsquiz.text}}</pre></div>
