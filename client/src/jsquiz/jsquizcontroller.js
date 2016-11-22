@@ -7,7 +7,8 @@ angular.module('quizApp')
       .then((res) => {
         this.allTheQuestions = res.data;
         this.question = $sce.trustAsHtml(this.allTheQuestions[this.counter].question);
-      },(res) => {
+      })
+      .catch((err) => {
         $state.go('signin');
       });
     this.victory = 0;
