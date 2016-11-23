@@ -143,7 +143,7 @@ app.use(function(req, res, next) {
 
 //a hacky way to check if someone is signed in.  A post successful post request to banana will only happen if the user contains an appropriate token.
 app.post('/banana', function(req, res){
-  res.json('banana');
+  res.json('bananas');
 })
 
 //gets questions and answers for bio quiz
