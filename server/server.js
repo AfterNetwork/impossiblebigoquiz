@@ -73,9 +73,9 @@ app.post('/users', function(req, res){
   var mailOptions = {
     from: '"Seth Koch ?" <constcodeprepmailer@gmail.com>', // sender address
     to: email, // list of receivers
-    subject: 'Hello ✔', // Subject line
-    text: 'Hello world ?', // plaintext body
-    html: '<b>Hello world ?</b>' // html body
+    subject: "You're signed up ✔", // Subject line
+    text: 'Thanks', // plaintext body
+    html: '<b>Thanks for joining constcodeprep</b>' // html body
 };
   var signUpMail = () => {
   transporter.sendMail(mailOptions, function(error, info){
