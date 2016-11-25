@@ -33,29 +33,24 @@ app.post('/users', function(req, res){
   var password = req.body.password;
   var email = req.body.email;
   var passForDb = "";
-  var dupUser = false;
-  var dupEmail = false;
+
+
+
   Users.findOne({username: user}, function(err, check){
     if (err) throw (err);
     //check to see if there is already that username in database
     if(check){
-      dupUser = true;
       res.json({duplicateUser: true})
+      return;
     }
-    //check to see if there is already that email in database
-    if(!check){
-      Users.findOne({email: email}, function(err, check) {
-        if (err) throw (err);
+    // check to see if there is already that email in database
+    Users.findOne({email: email}, function(err, check) {
+      if (err) throw (err);
+      if(check){
 
-        if(check){
-          dupEmail = true;
-          res.json({duplicateEmail: true})
-        }
-      })
-    }
-
-    //if that username and email is not in database, go ahead and contine with create
-    else if(!dupUser && !dupEmail){
+        res.json({duplicateEmail: true})
+        return;
+      }
       bcrypt.genSalt(10, function(err, salt) {
         bcrypt.hash(password, salt, function(err, hash) {
           passForDb = hash;
@@ -68,7 +63,9 @@ app.post('/users', function(req, res){
         });
 
       });
-    }
+
+    })
+
   })
 });
 
