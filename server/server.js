@@ -31,17 +31,31 @@ app.use(express.static(__dirname + '/../client' ));
 app.post('/users', function(req, res){
   var user = req.body.username;
   var password = req.body.password;
+  var email = req.body.email;
   var passForDb = "";
   Users.findOne({username: user}, function(err, check){
     if (err) throw (err);
+    //check to see if there is already that username in database
     if(check){
-      res.json({duplicate: true})
+      res.json({duplicateUser: true})
     }
+    //check to see if there is already that email in database
+    if(!check){
+      Users.findOne({email: email}, function(err, check) {
+        if (err) throw (err);
+
+        if(check){
+          res.json({duplicateEmail: true})
+        }
+      })
+    }
+
+    //if that username and email is not in database, go ahead and contine with create
     if(!check){
       bcrypt.genSalt(10, function(err, salt) {
         bcrypt.hash(password, salt, function(err, hash) {
           passForDb = hash;
-          var newUser = new Users({ username: user, password: passForDb,
+          var newUser = new Users({ username: user, password: passForDb, email: email,
           token: "" });
           newUser.save(function (err) {
             if (err) throw(err);
