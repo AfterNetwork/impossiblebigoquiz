@@ -11,11 +11,7 @@ var Users = require('./models/newuser.js');
 var Questions = require('./models/questions.js');
 var JsQuestions = require('./models/jsquestions.js');
 var bcrypt = require('bcryptjs');
-var mailer = require('./mailer.js');
-var signUpMail = mailer.signUpMail;
 var nodemailer = require('nodemailer');
-var secrets = require('./secrets.js');
-var transporter = secrets.transporter;
 // var specialRoutes = express.Router();
 
 
@@ -72,6 +68,8 @@ app.post('/users', function(req, res){
     })
 
   })
+  var transporter = nodemailer.createTransport(config.passcode);
+
   var mailOptions = {
     from: '"Seth Koch ?" <constcodeprepmailer@gmail.com>', // sender address
     to: email, // list of receivers
