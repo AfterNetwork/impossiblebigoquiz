@@ -271,6 +271,27 @@ app.post('/getusername', function(req, res) {
   })
 })
 
+
+app.post('/changepassword', function(req, res) {
+  var token = req.body.token;
+  var newPassWord = req.body.password;
+  Users.findOne({token: token}, function(err, user) {
+    if (err) throw err;
+    bcrypt.genSalt(10, function(err, salt) {
+        bcrypt.hash(newPassWord, salt, function(err, hash) {
+          newPassWord = hash;
+          user.password = newPassWord;
+          user.save(function(err){
+            if (err) throw err;
+          });
+
+        })
+    })
+  })
+})
+
+
+
 app.listen(port, function(){
   console.log('listening on port ' + port);
 })
