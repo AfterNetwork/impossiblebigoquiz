@@ -28,7 +28,62 @@ app.use(express.static(__dirname + '/../client' ));
 
 
 
+app.post('/forgotpass', function(req, res){
+  var email = req.body.email;
+  var tempPass = "A1";
+  var tempPassForDb = "";
+  Users.findOne({email: email}, function(err, user){
+    if (err) throw (err)
+    if(!user) {
+      res.json({user: false})
+    }
+    var makeTempPass = function(){
+      while(tempPass.length < 6){
+        var alpha = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
+        var randomNum = alpha[Math.floor(Math.random() * 8)];
+        tempPass += randomNum;
+      }
 
+    };
+    makeTempPass();
+    bcrypt.genSalt(10, function(err, salt) {
+        bcrypt.hash(tempPass, salt, function(err, hash) {
+        tempPassForDb = hash;
+        var transporter = nodemailer.createTransport(config.passcode);
+        var mailOptions = {
+          from: '"Seth Koch" <constcodeprepmailer@gmail.com>', // sender address
+          to: email, // list of receivers
+          subject: "Password reset", // Subject line
+          text: 'Here is your temporary password :    ' + tempPass +
+          '    please change it soon after logging into your account.  You can change your password in your profile once you have logged in' // plaintext body
+        };
+        var sendEmail = () => {
+          transporter.sendMail(mailOptions, function(error, info){
+            if(error){
+              return console.log(error);
+            }
+            console.log('Message sent: ' + info.response);
+          });
+        };
+        sendEmail();
+        res.json({messageSent: true})
+
+        user.password = tempPassForDb;
+        user.save(function(err){
+          if (err) throw err()
+        })
+        })
+      })
+  })
+});
+
+
+
+
+
+
+
+//create a user and send a welcome email:
 app.post('/users', function(req, res){
   var user = req.body.username;
   var password = req.body.password;
@@ -55,8 +110,7 @@ app.post('/users', function(req, res){
       bcrypt.genSalt(10, function(err, salt) {
         bcrypt.hash(password, salt, function(err, hash) {
           passForDb = hash;
-          var newUser = new Users({ username: user, password: passForDb, email: email,
-          token: "" });
+          var newUser = new Users({ username: user, password: passForDb, email: email, token: "" });
           newUser.save(function (err) {
             if (err) throw(err);
             res.json('got it');
@@ -93,9 +147,7 @@ app.post('/users', function(req, res){
 
 //test authentication routes
 
-app.post('/authenticate', function(req, res){
-  var salt = bcrypt.genSaltSync(10);
-  var hash = bcrypt.hashSync(req.body.password, salt);
+app.post('/authenticate', function(req, res) {
   Users.findOne({
     username: req.body.username
   }, function(err, user) {
@@ -103,33 +155,28 @@ app.post('/authenticate', function(req, res){
     if(!user) {
       res.json({success: false, message:'You aint in here'});
     }
-    else if (user) {
-      if (bcrypt.compareSync(hash, user.password)) {
+    if (user) {
+      if (!bcrypt.compareSync(req.body.password, user.password)) {
         res.json({sucess: false, message:"Wrong password"});
       }
-    else{
-      var token = jwt.sign({username: user.username}, app.get('superSecret'), {
+      else{
+        var token = jwt.sign({username: user.username}, app.get('superSecret'), {
         expiresIn: "24h"
 
-      });
+        });
 
-      res.json({
-        success: true,
-        message: "Enjoy B",
-        token: token
-      });
+        res.json({
+          success: true,
+          message: "Enjoy B",
+          token: token
+        });
 
-      user.token = token;
-      user.save(function(err){
-        if (err) throw err;
-      });
-
-
-
-
-  }
-
-  }
+        user.token = token;
+        user.save(function(err){
+          if (err) throw err;
+        });
+      }
+    }
   });
 });
 

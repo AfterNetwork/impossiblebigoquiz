@@ -1,19 +1,31 @@
 <div ng-controller="SignUpController as signup">
-    <center><img src="../../content/logo.png"></center>
+  <center><img src="../../content/logo.png"></center>
 
-      <form class = "form-signin has-success" ng-submit="signup.submit()">
-        <h2 class="form-signin-heading">Create a new user</h2>
+  <form class = "form-signin has-success" ng-submit="signup.submit()">
+    <h2 class="form-signin-heading">Create a new user</h2>
 
-        <label for="inputUser" class="sr-only">User Name </label>
-        <input autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" type='input' id="inputUser" class="form-control" placeholder="username (letters and numbers only)" ng-model="signup.user" name='text' pattern="[a-z0-9]+" required autofocus maxlength="15" ></input>
+    <label for="inputUser" class="sr-only">User Name </label>
+    <input autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" type='input' id="inputUser" class="form-control" placeholder="username (letters and numbers only)" ng-model="signup.user" name='text' pattern="[a-z0-9]+" required autofocus maxlength="15" ></input>
 
-        <label for="inputEmail" class="sr-only">Email </label>
-        <input autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" type='email' id="inputEmail" class="form-control" placeholder="email" ng-model="signup.email" name='text' required ></input>
+    <label for="inputEmail" class="sr-only">Email </label>
+    <input autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" type='email' id="inputEmail" class="form-control" placeholder="email" ng-model="signup.email" name='text' required ></input>
 
-        <label for="inputPass" class="sr-only">Password</label>
-        <input autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" type="password" id="inputPass" class="form-control" placeholder="password min 6, 1 cap, 1 small, 1 num" ng-model="signup.password" name='text' required maxlength="15" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" ></input>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Create</button>
-      </form>
+    <label for="inputPass" class="sr-only">Password</label>
+    <input autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" type="password" id="inputPass" class="form-control" placeholder="password min 6, 1 cap, 1 small, 1 num" ng-model="signup.password" name='text' required maxlength="15" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" ></input>
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Create</button>
+  </form>
 
+  <div align ="center">
+    <button class="btn btn-warning" ui-sref="forgotpassword">Forgot password</button><br>
+  </div>
+
+  <div align="center">
+    <button class = "btn btn-success" ui-sref="signin">Sign in</button>
+  </div>
 
 </div>
+
+
+
+
+
