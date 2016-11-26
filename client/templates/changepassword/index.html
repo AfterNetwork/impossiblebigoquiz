@@ -1,0 +1,16 @@
+<div ng-controller="ChangePasswordController as change">
+    <div align="center"><img src="../../content/logo.png"></div>
+
+
+
+    <form class = "form-signin" ng-submit="change.submit()">
+        <div align="center"><h2 class="form-signin-heading">Change Password</h2></div>
+
+
+        <label for="inputPass" class="sr-only">New Password</label>
+        <input autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" type='password' id="inputPass" class="form-control" placeholder="password min 6, 1 cap, 1 small, 1 num" ng-model="change.newPassword" name='text' required maxlength="15" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"></input>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Change Password</button>
+      </form>
+
+
+</div>

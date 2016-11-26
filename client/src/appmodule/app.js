@@ -48,6 +48,12 @@ angular.module('quizApp', ['ui.router'])
             css: '../../content/css.css'
         })
 
+        .state('changepassword', {
+            url:'/changepassword',
+            templateUrl: '../../templates/changepassword/index.html',
+            css:'../../content/css.css'
+        })
+
         .state('jsquiz', {
             url:'/jsquiz',
             templateUrl: '../../templates/jsquiz/questions/index.html',
