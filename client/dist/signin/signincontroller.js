@@ -11,11 +11,11 @@ angular.module('quizApp').controller('SignInController', function ($http, $state
   }, function (res) {});
   this.submit = function () {
     $http.post('/authenticate', { username: this.user, password: this.password }).then(function (res) {
-      console.log(res.data.message);
-      $window.localStorage.accessToken = res.data.token;
-      $rootScope.bg = false;
-
-      $state.go('home');
+      if (res.data.message !== 'You aint in here') {
+        $rootScope.bg = false;
+        $window.localStorage.accessToken = res.data.token;
+        $state.go('home');
+      }
     });
     this.user = '';
     this.password = '';
