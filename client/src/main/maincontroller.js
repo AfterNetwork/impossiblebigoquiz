@@ -4,7 +4,7 @@ angular.module('quizApp')
     this.out = function(){
 
             $window.localStorage.accessToken = '';
-            $rootScope.bg = false;
+            $rootScope.bg = true;
             $state.go('signin');
      }
     getMedals.medals();
