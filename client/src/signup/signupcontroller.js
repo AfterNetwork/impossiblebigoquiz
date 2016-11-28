@@ -1,5 +1,5 @@
 angular.module('quizApp')
-  .controller('SignUpController', function($http,$state){
+  .controller('SignUpController', ["$http", "$state", function($http,$state){
     this.user;
     this.password;
     this.email;
@@ -21,4 +21,4 @@ angular.module('quizApp')
       this.email='';
       $state.go('signin');
     }
-  });
+  }]);

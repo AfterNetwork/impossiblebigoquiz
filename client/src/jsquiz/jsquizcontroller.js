@@ -1,5 +1,5 @@
 angular.module('quizApp')
-  .controller('JSQuizController', function($http, $state, $sce, $window){
+  .controller('JSQuizController', ["$http", "$state", "$sce", "$window", function($http, $state, $sce, $window){
     this.options = "type the exact expected output";
     this.allTheQuestions;
     this.question;
@@ -43,4 +43,4 @@ angular.module('quizApp')
         }
     }
 
-});
+}]);

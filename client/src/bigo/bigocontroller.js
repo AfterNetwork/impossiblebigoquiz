@@ -1,6 +1,6 @@
 //hdefffasdfasdf
 angular.module('quizApp')
-  .controller('BigOController', function($http, $state, $sce, $window){
+  .controller('BigOController', ["$http", "$state", "$sce", "$window", function($http, $state, $sce, $window){
     this.options = "constant, linear, quadratic, logarithmic, n log n,  or exponential";
     this.allTheQuestions;
     this.question;
@@ -46,4 +46,4 @@ angular.module('quizApp')
         }
     }
 
-});
+}]);

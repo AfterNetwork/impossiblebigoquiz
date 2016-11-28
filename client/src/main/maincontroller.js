@@ -1,5 +1,5 @@
 angular.module('quizApp')
-  .controller('MainController', function($http, $state, $window, authCheck, getMedals, $rootScope){
+  .controller('MainController', ["$http", "$state", "$window", "authCheck", "getMedals", "$rootScope", function($http, $state, $window, authCheck, getMedals, $rootScope){
     authCheck.auth();
     this.out = function(){
 
@@ -8,4 +8,4 @@ angular.module('quizApp')
             $state.go('signin');
      }
     getMedals.medals();
-  });
+  }]);

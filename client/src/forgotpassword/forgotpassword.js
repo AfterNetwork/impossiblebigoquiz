@@ -1,5 +1,5 @@
 angular.module('quizApp')
-  .controller('ForgotPasswordController', function($http,$state){
+  .controller('ForgotPasswordController', ["$http", "$state",function($http,$state){
     this.email;
     this.submit = function(){
       $http.post('/forgotpass', {email: this.email})
@@ -16,4 +16,4 @@ angular.module('quizApp')
       this.email='';
       $state.go('signin');
     }
-  });
+  }]);

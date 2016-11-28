@@ -1,5 +1,5 @@
 angular.module('quizApp')
-  .controller('SignInController', function($http, $state, $window, $rootScope){
+  .controller('SignInController', ["$http", "$state", "$window", "$rootScope", function($http, $state, $window, $rootScope){
     this.user;
     this.password;
     this.token=""
@@ -25,4 +25,4 @@ angular.module('quizApp')
 
     }
 
-  });
+  }]);

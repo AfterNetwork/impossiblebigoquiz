@@ -1,17 +1,16 @@
-
 angular.module('quizApp', ['ui.router'])
 
-  .run(function($rootScope, getUserName, authCheck) {
+  .run(["$rootScope", "getUserName", "authCheck", function($rootScope, getUserName, authCheck) {
     authCheck.auth();
     $rootScope.bg = false;
     $rootScope.penguin = false;
     $rootScope.fox = false;
     $rootScope.currentUser = "";
     getUserName.getUser();
-})
+}])
 
 
-  .config(function($stateProvider, $urlRouterProvider) {
+  .config(["$stateProvider", "$urlRouterProvider", function($stateProvider, $urlRouterProvider) {
 
     $urlRouterProvider.otherwise('/signin');
 
@@ -79,7 +78,7 @@ angular.module('quizApp', ['ui.router'])
             css: '../../content/css.css'
         })
 
-})
+}])
 
 
 

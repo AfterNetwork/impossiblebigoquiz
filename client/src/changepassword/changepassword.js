@@ -1,5 +1,5 @@
 angular.module('quizApp')
-  .controller('ChangePasswordController', function($http,$state,$window){
+  .controller('ChangePasswordController', ["$http", "$state", "$window", function($http,$state,$window){
 
     this.newPassword;
 
@@ -14,4 +14,4 @@ angular.module('quizApp')
 
       $state.go('profile');
     }
-  });
+  }]);
