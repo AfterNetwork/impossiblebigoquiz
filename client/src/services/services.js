@@ -1,5 +1,5 @@
 angular.module('quizApp')
-  .service('authCheck', function($http, $state, $window, $rootScope){
+  .service('authCheck', ["$http", "$state", "$window", "$rootScope", function($http, $state, $window, $rootScope){
     this.auth = function() {
       $http.post('/banana', {token:$window.localStorage.accessToken})
       .then((res) => {
@@ -9,8 +9,8 @@ angular.module('quizApp')
         $state.go('signin');
       });
     }
-  })
-  .service('getMedals', function($http, $window, $rootScope){
+  }])
+  .service('getMedals', ["$http", "$window", "$rootScope",function($http, $window, $rootScope){
       this.medals = function(){
         $http.post('/getmedal', {token:$window.localStorage.accessToken})
          .then((res) => {
@@ -26,15 +26,15 @@ angular.module('quizApp')
           })
        })
        }
-      })
+      }])
 
-    .service('getUserName', function($http, $window, $rootScope){
+    .service('getUserName', ["$http",  "$window", "$state","$rootScope", function($http, $window, $rootScope){
       this.getUser = function(){
         $http.post('/getusername', {token:$window.localStorage.accessToken})
          .then((res) => {
            $rootScope.currentUser = res.data;
           })
        }
-    })
+    }])
 
 

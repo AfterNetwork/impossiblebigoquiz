@@ -1,6 +1,1 @@
-'use strict';
-
-angular.module('quizApp').controller('ProfileController', function ($rootScope, getUserName, authCheck) {
-  authCheck.auth();
-  getUserName.getUser();
-});
+"use strict";angular.module("quizApp").controller("ProfileController",["$rootScope","getUserName","authCheck",function(e,o,r){r.auth(),o.getUser()}]);

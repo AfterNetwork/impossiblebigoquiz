@@ -1,6 +1,6 @@
 angular.module('quizApp')
-  .controller('ProfileController', function($rootScope, getUserName, authCheck){
+  .controller('ProfileController',["$rootScope", "getUserName", "authCheck", function($rootScope, getUserName, authCheck){
     authCheck.auth();
     getUserName.getUser();
 
-  });
+  }]);
