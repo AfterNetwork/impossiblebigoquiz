@@ -1,1 +1,0 @@
-"use strict";angular.module("quizApp").controller("MainController",["$http","$state","$window","authCheck","getMedals","$rootScope",function(t,o,e,n,a,l){n.auth(),this.out=function(){e.localStorage.accessToken="",l.bg=!0,o.go("signin")},a.medals()}]);
