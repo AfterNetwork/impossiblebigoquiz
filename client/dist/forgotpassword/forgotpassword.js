@@ -1,1 +1,0 @@
-"use strict";angular.module("quizApp").controller("ForgotPasswordController",["$http","$state",function(t,i){this.email,this.submit=function(){t.post("/forgotpass",{email:this.email}).then(function(t){t.data.user===!1&&alert("email not found"),t.data.messageSent&&(alert("check your email"),i.go("signin"))}),this.email="",i.go("signin")}}]);

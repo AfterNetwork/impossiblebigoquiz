@@ -1,1 +1,0 @@
-"use strict";angular.module("quizApp").controller("ChangePasswordController",["$http","$state","$window",function(s,o,t){this.newPassword,this.submit=function(){s.post("/changepassword",{password:this.newPassword,token:t.localStorage.accessToken}).then(function(s){alert("password changed")}),this.newPassword="",o.go("profile")}}]);
