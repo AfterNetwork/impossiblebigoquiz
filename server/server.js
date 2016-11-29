@@ -12,14 +12,15 @@ var Questions = require('./models/questions.js');
 var JsQuestions = require('./models/jsquestions.js');
 var bcrypt = require('bcryptjs');
 var nodemailer = require('nodemailer');
-// var specialRoutes = express.Router();
+var compression = require('compression');
+
 
 
 
 mongoose.connect(config.database);
 app.set('superSecret', config.secret);
 
-
+app.use(compression());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 app.use(express.static(__dirname + '/../client' ));
