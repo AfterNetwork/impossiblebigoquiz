@@ -1,4 +1,4 @@
-var secrets = require('./secretpass.js');
+var secrets = require('secretpass.js');
 var passcode = secrets.passcode;
 module.exports ={
   'secret' : 'silence',
