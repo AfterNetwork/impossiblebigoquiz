@@ -15,4 +15,5 @@ The file, secretpass, has been left out of github because it contains the userna
 var passcode = 'smtps://hereyou'llputtheemailthatisused:andrightheregoesthepasswordfortheemail.gmail.com';
 
 exports.passcode = passcode;
+
 ```
