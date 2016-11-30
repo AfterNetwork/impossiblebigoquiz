@@ -21,3 +21,12 @@ var passcode = 'smtps://hereyou'llputtheemailthatisused:andrightheregoesthepassw
 exports.passcode = passcode;
 
 ```
+
+## Development
+
+### Installing Dependencies
+
+```
+npm install
+
+```
