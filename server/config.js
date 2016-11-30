@@ -1,10 +1,9 @@
-// if(!process.env.Passcode){
-//   var secrets = require('./secretpass.js');
-//   var passcode = secrets.passcode;
-// }
+var secrets = process.env.PASSCODE === undefined ? require('./secretpass.js') : 'test';
+var passcode = secrets.passcode;
+
 module.exports ={
   'secret' : 'silence',
   'database': process.env.MONGODB_URI || 'mongodb://localhost/quicktest',
-  'passcode': process.env.PASSCODE
+  'passcode': process.env.PASSCODE || passcode
 
 }
