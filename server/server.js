@@ -17,6 +17,7 @@ var compression = require('compression');
 
 
 
+
 mongoose.connect(config.database);
 app.set('superSecret', config.secret);
 
