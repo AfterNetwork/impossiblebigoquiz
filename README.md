@@ -10,11 +10,11 @@ constcondeprep is an app that can help you prepare for coding interviews on the 
 
 ## Requirements
 ```
-The file, secretpass, has been left out of github because it contains the username and password for the email that's used to
+The file, secretpass, has been left out of github because it contains the username and password for 
 
-send forgotten passwords.  In the config file, there is a ternary operator that upon the env variable being undefined it will
+the email that's used to send forgotten passwords.  In the config file, there is a ternary operator 
 
-require ./secretpass.  This file will need to be made :
+that upon the env variable being undefined it willrequire ./secretpass.  This file will need to be made :
 
 var passcode = 'smtps://hereyou'llputtheemailthatisused:andrightheregoesthepasswordfortheemail.gmail.com';
 
