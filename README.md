@@ -28,5 +28,8 @@ exports.passcode = passcode;
 
 ```
 npm install
-
 ```
+
+### Deployed
+
+constcodeprep is currently deployed on heroku: (constcodeprep)
