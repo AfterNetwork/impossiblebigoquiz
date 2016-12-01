@@ -195,7 +195,7 @@ app.use(function(req, res, next) {
   var token = req.body.token
 
   if (token) {
-    jwt.verify(token, app.get('superSecret'), function(err, decoded) {
+    jwt.verify(token, config.secret, function(err, decoded) {
       if (err) {
         return res.status(403).send({ success: false, message: 'Failed to authenticate token.' });
       }
