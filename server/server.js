@@ -147,7 +147,7 @@ app.post('/users', function(req, res){
 
 
 
-//test authentication routes
+//sign in authentication
 
 app.post('/authenticate', function(req, res) {
   Users.findOne({
@@ -162,7 +162,7 @@ app.post('/authenticate', function(req, res) {
         res.json({sucess: false, message:"Wrong password"});
       }
       else{
-        var token = jwt.sign({username: user.username}, app.get('superSecret'), {
+        var token = jwt.sign({username: user.username}, config.secret, {
         expiresIn: "24h"
 
         });
@@ -189,7 +189,7 @@ app.post('/authenticate', function(req, res) {
 
 
 
-//begin lock up
+//begin lock up, app.use will protect every route below it.  User must have a token to get through.
 
 app.use(function(req, res, next) {
   var token = req.body.token
