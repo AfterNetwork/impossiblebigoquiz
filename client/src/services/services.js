@@ -16,6 +16,7 @@ angular.module('quizApp')
          .then((res) => {
            console.log(res.data);
            var medals = res.data;
+           //checks to see medals have been earned, if have, set rootScope to true.
            medals.forEach((item) => {
              if(item === 'bigopenguin'){
                $rootScope.penguin = true;
@@ -23,12 +24,15 @@ angular.module('quizApp')
              if(item === 'jsfox'){
                $rootScope.fox = true;
              }
+             if(item === 'interviewbear'){
+               $rootScope.bear = true;
+             }
           })
        })
        }
       }])
 
-    .service('getUserName', ["$http",  "$window", "$state","$rootScope", function($http, $window, $rootScope){
+    .service('getUserName', ["$http",  "$window", "$rootScope", function($http, $window, $rootScope){
       this.getUser = function(){
         $http.post('/getusername', {token:$window.localStorage.accessToken})
          .then((res) => {

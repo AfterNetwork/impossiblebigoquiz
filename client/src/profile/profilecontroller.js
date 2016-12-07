@@ -5,4 +5,5 @@ angular.module('quizApp')
     //sets current user name to the root scope currentUser
     getUserName.getUser();
 
+
   }]);

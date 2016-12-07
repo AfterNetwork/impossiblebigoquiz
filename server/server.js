@@ -10,6 +10,7 @@ var config = require('./config.js')
 var Users = require('./models/newuser.js');
 var Questions = require('./models/questions.js');
 var JsQuestions = require('./models/jsquestions.js');
+var Interviewquestions = require('./models/interviewquestions.js');
 var bcrypt = require('bcryptjs');
 var nodemailer = require('nodemailer');
 var compression = require('compression');
@@ -25,7 +26,7 @@ app.use(compression());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 app.use(express.static(__dirname + '/../client' ));
-// app.use('/special', specialRoutes);
+
 
 
 
@@ -147,7 +148,7 @@ app.post('/users', function(req, res){
 
 
 
-//sign in authentication
+//sign in authentication and sign in
 
 app.post('/authenticate', function(req, res) {
   Users.findOne({
@@ -244,6 +245,14 @@ app.post('/questions', function(req, res){
 //gets questions and answer for js quiz
 app.post('/jsquestions', function(req, res){
   mongoose.model('jsquestions').find(function(err,ques){
+    res.json(ques);
+  })
+})
+
+//gets questions and answers for interviewquestions quiz
+
+app.post('/interviewquestions', function(req, res){
+  mongoose.model('interviewquestions').find(function(err,ques){
     res.json(ques);
   })
 })

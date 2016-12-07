@@ -5,6 +5,7 @@ angular.module('quizApp', ['ui.router'])
     $rootScope.bg = false;
     $rootScope.penguin = false;
     $rootScope.fox = false;
+    $rootScope.bear = false;
     $rootScope.currentUser = "";
     getUserName.getUser();
 }])
@@ -56,6 +57,12 @@ angular.module('quizApp', ['ui.router'])
         .state('jsquiz', {
             url:'/jsquiz',
             templateUrl: '../../templates/jsquiz/questions/index.html',
+            css: '../../content/css.css'
+        })
+
+        .state('interviewquestionsquiz', {
+            url:'/interviewquestions',
+            templateUrl: '../../templates/interviewquestions/questions/index.html',
             css: '../../content/css.css'
         })
 
