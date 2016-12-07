@@ -1,0 +1,15 @@
+<div ng-controller="InterviewquizController as interview">
+  <div class="behindJumbo">
+          <div align="center"><h1>The Interview Questions Quiz</h1></div>
+      <div class="replaceJumbo">
+        <div class="quizQues" ng-bind-html='interview.question'></div>
+      </div>
+
+
+    <div align="center">
+      <button class="btn btn-primary" ng-click="interview.text = 'true'; interview.submit()">True </button>
+      <button class="btn btn-danger" ng-click="interview.text = 'false'; interview.submit()" >False </button>
+    </div>
+
+  <div class="behindJumbo">
+</div>
