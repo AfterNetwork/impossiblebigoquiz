@@ -17,11 +17,7 @@ gulp.task('watch', function() {
   gulp.watch('client/src/**/*.js', ['uglify'])
 })
 
-// gulp.task('babel', function(){
-//   gulp.src('client/src/**/*.js')
-//       .pipe(babel())
-//       .pipe(gulp.dest('client/dist'));
-// });
+
 
 
 
