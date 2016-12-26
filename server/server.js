@@ -288,6 +288,7 @@ app.post('/changepassword', function(req, res) {
   var newPassWord = req.body.password;
   Users.findOne({token: token}, function(err, user) {
     if (err) throw err;
+    if (user) {
     bcrypt.genSalt(10, function(err, salt) {
         bcrypt.hash(newPassWord, salt, function(err, hash) {
           newPassWord = hash;
@@ -298,6 +299,7 @@ app.post('/changepassword', function(req, res) {
 
         })
     })
+  }
   })
 })
 
