@@ -170,7 +170,7 @@ app.post('/authenticate', function(req, res) {
 
         res.json({
           success: true,
-          message: "Enjoy B",
+          message: "Enjoy!",
           token: token
         });
 
@@ -278,7 +278,7 @@ app.post('/getusername', function(req, res) {
   var token = req.body.token;
   Users.findOne({token: token}, function(err, user){
     if (err) throw err;
-    res.json(user.username);
+    if (user) res.json(user.username);
   })
 })
 
