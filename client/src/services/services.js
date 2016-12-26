@@ -14,7 +14,6 @@ angular.module('quizApp')
       this.medals = function(){
         $http.post('/getmedal', {token:$window.localStorage.accessToken})
          .then((res) => {
-           console.log(res.data);
            var medals = res.data;
            //checks to see medals have been earned, if have, set rootScope to true.
            medals.forEach((item) => {
