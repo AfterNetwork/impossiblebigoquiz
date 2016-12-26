@@ -270,7 +270,7 @@ app.post('/getmedal', function(req, res) {
   var token = req.body.token;
   Users.findOne({token: token}, function(err, user){
     if (err) throw err;
-    res.json(user.medals);
+    if (user) res.json(user.medals);
   })
 })
 
