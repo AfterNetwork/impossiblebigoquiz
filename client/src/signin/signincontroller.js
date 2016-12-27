@@ -4,13 +4,13 @@ angular.module('quizApp')
     this.password;
     this.token=""
 
+    //** why are you pulling from questions? ** By never getting a response back are you wasting precious time?
     $http.post('/questions', {token:$window.localStorage.accessToken})
       .then((res) => {
         $state.go('home');
         $rootScope.bg = false;
-      },(res) => {
-
       });
+
     this.submit = function(){
       $http.post('/authenticate', {username: this.user, password: this.password})
         .then((res) => {

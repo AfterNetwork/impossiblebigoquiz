@@ -234,12 +234,8 @@ app.post('/banana', function(req, res){
 app.post('/questions', function(req, res){
   var question;
   mongoose.model('questions').find(function(err,ques){
-
     res.json(ques);
-
-
   })
-
 })
 
 //gets questions and answer for js quiz
