@@ -2,10 +2,9 @@
 var secrets = process.env.PASSCODE === undefined ? require('../secretpass.js') : 'test';
 var passcode = secrets.passcode;
 
-module.exports ={
+module.exports = {
   'secret' : process.env.SECRET || 'happiness',
   'database': process.env.MONGODB_URI || 'mongodb://localhost/quicktest',
   'passcode': process.env.PASSCODE || passcode,
    'port': process.env.PORT || 8080
-
 }
