@@ -22,23 +22,20 @@ angular.module('quizApp')
         if (this.answer === this.allTheQuestions[this.counter].answer){
             this.counter ++;
             this.victory ++;
-            if(this.victory === 20){
+            if (this.victory === 20){
                 $http.post('/addmedal', {token:$window.localStorage.accessToken, medal:'bigopenguin'})
                       .then((res) => {
-
                       });
-
-
                 $state.go('victory');
                 this.counter = 0;
                 this.question = $sce.trustAsHtml(this.allTheQuestions[this.counter].question);
                 this.victory = 0;
             }
-            else{
+            else {
               this.question = $sce.trustAsHtml(this.allTheQuestions[this.counter].question);
             }
         }
-        else{
+        else {
             this.victory = 0;
             this.counter = 0;
             this.question = $sce.trustAsHtml(this.allTheQuestions[this.counter].question);
