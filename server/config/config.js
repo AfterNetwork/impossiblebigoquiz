@@ -5,6 +5,7 @@ var passcode = secrets.passcode;
 module.exports ={
   'secret' : process.env.SECRET || 'happiness',
   'database': process.env.MONGODB_URI || 'mongodb://localhost/quicktest',
-  'passcode': process.env.PASSCODE || passcode
+  'passcode': process.env.PASSCODE || passcode,
+   'port': process.env.PORT || 8080
 
 }
