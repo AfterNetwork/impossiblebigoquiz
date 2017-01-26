@@ -3,6 +3,9 @@
   var config = require('../config/config.js');
   var jwt = require('jsonwebtoken');
   var mongoose = require('mongoose');
+  var questions = require('../models/questions.js');
+  var jsquestions = require('../models/jsquestions.js');
+  var interviewquestions = require('../models/interviewquestions.js');
 
   module.exports = {
     bananaPudding : function(req, res){
@@ -10,20 +13,19 @@
     },
 
     firstQuestions : function(req, res){
-      var question;
-      mongoose.model('questions').find(function(err,ques){
+      questions.find(function(err,ques){
         res.json(ques);
       })
     },
 
     jsQuestions : function(req, res){
-      mongoose.model('jsquestions').find(function(err,ques){
+      jsquestions.find(function(err,ques){
         res.json(ques);
       })
     },
 
     interviewQuestions: function(req, res){
-      mongoose.model('interviewquestions').find(function(err,ques){
+      interviewquestions.find(function(err,ques){
         res.json(ques);
       })
     }
