@@ -1,22 +1,16 @@
-<div ng-controller="SignInController as sign">
-    <div align="center"><img src="../../content/logo.png"></div>
+<div align="center"><img src="../../content/logo.png" /></div>
+<form class = "form-signin" ng-submit="sign.submit()">
+  <div align="center"><h2 class="form-signin-heading"> Sign in </h2></div>
 
+    <label for="inputUser" class="sr-only"> User Name </label>
+    <input autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" type='text' id="inputUser" class="form-control" placeholder="username" ng-model="sign.user" name='text' required autofocus maxlength="15" pattern="[a-z0-9]+" ></input>
 
+    <label for="inputPass" class="sr-only"> Password </label>
+    <input autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" type='password' id="inputPass" class="form-control" placeholder="password" ng-model="sign.password" name='text' required maxlength="15" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"></input>
 
-    <form class = "form-signin" ng-submit="sign.submit()">
-        <div align="center"><h2 class="form-signin-heading">Sign in</h2></div>
-        <label for="inputUser" class="sr-only">User Name</label>
-        <input autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" type='text' id="inputUser" class="form-control" placeholder="username" ng-model="sign.user" name='text' required autofocus maxlength="15" pattern="[a-z0-9]+" ></input>
+    <button class="btn btn-lg btn-primary btn-block" type="submit"> Sign in </button>
+</form>
+<div align ="center"><button class="btn btn-warning" ui-sref="forgotpassword"> Forgot password </button><br>
+<div align="center"><button class = "btn btn-success" ui-sref="signup"> Create an account </div>
 
-        <label for="inputPass" class="sr-only">Password</label>
-        <input autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" type='password' id="inputPass" class="form-control" placeholder="password" ng-model="sign.password" name='text' required maxlength="15" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"></input>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-      </form>
-
-
-
-    <div align ="center"><button class="btn btn-warning" ui-sref="forgotpassword">Forgot password</button><br>
-    <div align="center"><button class = "btn btn-success" ui-sref="signup">Create an account</div>
-
-</div>
 

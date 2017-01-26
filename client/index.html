@@ -1,92 +1,58 @@
-<!-- index.html -->
-
 <!DOCTYPE html>
 <html ng-app="quizApp">
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"> -->
-
-
-
-
-    <link href="/lib/bootstrap3/dist/css/bootstrap.min.css" rel="stylesheet">
-
-
-
-
-
-
-
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
+  <link rel="stylesheet" href="content/css.css">
 </head>
-
-
-
-<body ng-class="bg ? 'b1' : 'b2'">
+<body ng-class="bg ? 'b1': 'b2'">
 <!-- begin nav bar -->
-<div ng-controller="MainController as main">
-  <nav ng-hide="bg" class="navbar navbar-default">
-    <div class="container-fluid">
-      <!-- Brand and toggle get grouped for better mobile display -->
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" ui-sref="home"><img src='/content/logosmall.png' /></a>
-      </div>
-
-      <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav ">
-          <li><a ui-sref="home">Home <span class="sr-only">(current)</span></a></li>
-          <li><a ui-sref="profile">Profile <span class="sr-only">(current)</span></a></li>
-          <li class="dropdown">
-            <a  class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Quizzes <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-              <li><a ui-sref="quiz">Big O</a></li>
-              <li><a ui-sref="jsquiz">Java Script</a></li>
-              <li><a ui-sref="interviewquestionsquiz">Interview</a></li>
-            </ul>
-          </li>
-        </ul>
-          </li>
-        </ul>
-        <button type="button" class="btn btn-danger navbar-btn navbar-right" ng-click='main.out()'>Sign out</button>
-      </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
-  </nav>
+  <div ng-controller= "MainController as main">
+    <nav ng-hide="bg" class="navbar navbar-default">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" ui-sref="home"><img src='/content/logosmall.png' /></a>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li><a ui-sref="home"> Home <span class="sr-only">(current)</span></a></li>
+            <li><a ui-sref="profile"> Profile <span class="sr-only">(current)</span></a></li>
+            <li class="dropdown">
+              <a  class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Quizzes <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a ui-sref="quiz"> Big O </a></li>
+                <li><a ui-sref="jsquiz"> Java Script </a></li>
+                <li><a ui-sref="interviewquestionsquiz"> Interview </a></li>
+              </ul>
+            </li>
+          </ul>
+          <button type="button" class="btn btn-danger navbar-btn navbar-right" ng-click='main.out()'> Sign out </button>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
 
 
-</div>
-<!-- end nav bar -->
-
-
-
-
-
-
-
-<div class="container">
-    <div ui-view></div>
-</div>
-
-
-
-
-
-    <script src="lib/jquery/dist/jquery.min.js"></script>
-    <script src="lib/bootstrap3/dist/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="content/css.css">
-
-
-    <script src="lib/angular/angular.min.js"></script>
-    <script src="lib/angular-ui-router/release/angular-ui-router.min.js"></script>
-
-
-
-
-    <script src="dist/all.js"></script>
+  </div>
+  <!-- end nav bar -->
+  <!-- Begin view -->
+  <div class="container">
+      <div ui-view></div>
+  </div>
+  <!-- end view -->
+  <!-- scripts -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.js" ></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.4.0/angular-ui-router.js"></script>
+  <script src="dist/all.js"></script>
 </body>
 </html>

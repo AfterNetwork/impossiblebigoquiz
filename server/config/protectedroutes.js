@@ -1,6 +1,6 @@
 (function() {
 
-  var dataController= require('../data/datacontroller.js');
+  var dataController = require('../data/datacontroller.js');
   var userController = require('../user/usercontroller.js');
 
   module.exports = function(app, express) {
@@ -13,6 +13,7 @@
     app.post('/getmedal', userController.getMedal);
     app.post('/getusername', userController.getUserName);
     app.post('/changepassword', userController.changePassword);
+
   };
 
 })();

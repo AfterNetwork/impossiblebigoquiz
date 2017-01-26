@@ -8,28 +8,29 @@
   var interviewquestions = require('../models/interviewquestions.js');
 
   module.exports = {
-    bananaPudding : function(req, res){
+
+    bananaPudding: function(req, res) {
       res.json('bananas');
     },
 
-    firstQuestions : function(req, res){
-      questions.find(function(err,ques){
+    firstQuestions: function(req, res) {
+      questions.find(function(err, ques) {
         res.json(ques);
-      })
+      });
     },
 
-    jsQuestions : function(req, res){
-      jsquestions.find(function(err,ques){
+    jsQuestions: function(req, res) {
+      jsquestions.find(function(err, ques) {
         res.json(ques);
-      })
+      });
     },
 
-    interviewQuestions: function(req, res){
-      interviewquestions.find(function(err,ques){
+    interviewQuestions: function(req, res) {
+      interviewquestions.find(function(err, ques) {
         res.json(ques);
-      })
+      });
     }
 
-  }
+  };
 
 })();

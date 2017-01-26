@@ -6,3 +6,4 @@
 **/content
 **/vendor
 **/*.min.js
+**/npm-debug.log

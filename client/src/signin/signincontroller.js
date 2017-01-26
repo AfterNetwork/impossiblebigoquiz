@@ -1,28 +1,33 @@
-angular.module('quizApp')
-  .controller('SignInController', ["$http", "$state", "$window", "$rootScope", function($http, $state, $window, $rootScope){
-    this.user;
-    this.password;
-    this.token=""
+(function() {
 
-    //** why are you pulling from questions? ** By never getting a response back are you wasting precious time?
-    $http.post('/questions', {token:$window.localStorage.accessToken})
-      .then((res) => {
-        $state.go('home');
-        $rootScope.bg = false;
-      });
+  angular.module('quizApp')
+    .controller('SignInController', ['$http', '$state', '$window', '$rootScope', function($http, $state, $window, $rootScope) {
 
-    this.submit = function(){
-      $http.post('/authenticate', {username: this.user, password: this.password})
+      var vm = this;
+      vm.user;
+      vm.password;
+      vm.token = '';
+      //** why are you pulling from questions? ** By never getting a response back are you wasting precious time?
+      $http.post('/questions', {token: $window.localStorage.accessToken})
         .then((res) => {
-            if(res.data.message !== 'You aint in here'){
+          $state.go('home');
+          $rootScope.bg = false;
+        });
+
+      vm.submit = function() {
+        $http.post('/authenticate', {username: vm.user, password: vm.password})
+          .then((res) => {
+            if (res.data.message !== 'You aint in here') {
               $rootScope.bg = false;
               $window.localStorage.accessToken = res.data.token;
               $state.go('home');
             }
           });
-      this.user = '';
-      this.password='';
+        vm.user = '';
+        vm.password = '';
 
-    }
+      };
 
-  }]);
+    }]);
+
+})();

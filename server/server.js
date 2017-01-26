@@ -1,8 +1,9 @@
 (function() {
+
   var express = require('express');
   var app = express();
   var mongoose = require('mongoose');
-  var config = require('./config/config.js')
+  var config = require('./config/config.js');
 
   mongoose.connect(config.database);
 
