@@ -32,4 +32,4 @@ npm install
 
 ### Deployed
 
-constcodeprep is currently deployed on heroku: [constcodeprep](constcodeprep)
+constcodeprep is currently deployed on heroku: [constcodeprep.com](constcodeprep)
