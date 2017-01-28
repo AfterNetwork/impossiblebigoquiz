@@ -1,17 +1,20 @@
-angular.module('quizApp')
-  .controller('ChangePasswordController', ["$http", "$state", "$window", function($http,$state,$window){
+(function() {
 
-    this.newPassword;
+  angular.module('quizApp')
+    .controller('ChangePasswordController', ['$http', '$state', '$window', function($http, $state, $window) {
 
-    this.submit = function(){
-      $http.post('/changepassword', {password: this.newPassword, token:$window.localStorage.accessToken})
-        .then(function(res) {
-        alert('password changed');
-      })
+      var vm = this;
+      vm.newPassword;
 
+      vm.submit = function() {
+        $http.post('/changepassword', {password: vm.newPassword, token: $window.localStorage.accessToken})
+          .then(function(res) {
+            alert('password changed');
+          });
+        vm.newPassword = '';
+        $state.go('profile');
+      };
 
-      this.newPassword='';
+    }]);
 
-      $state.go('profile');
-    }
-  }]);
+})();

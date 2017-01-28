@@ -1,0 +1,9 @@
+.eslint*
+**/node_modules
+**/bower_components
+**/lib
+**/dist
+**/content
+**/vendor
+**/*.min.js
+**/npm-debug.log

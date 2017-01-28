@@ -1,18 +1,16 @@
-<div id="b2" ng-controller="BigOController as bigo">
+<div id="b2">
   <div class="behindJumbo">
-
-      <div align="center"><h1>The Big O Quiz</h1></div>
-      <div class="replaceJumbo">
-        <div class="quizQues" ng-bind-html = 'bigo.question'> </div>
-      </div>
-
-
+    <div align="center"><h1> The Big O Quiz </h1></div>
+    <div class="replaceJumbo">
+      <div class="quizQues" ng-bind-html ="bigo.question"> </div>
+    </div>
     <div align="center" ng-bind="bigo.options"></div>
+
     <form ng-submit="bigo.submit()">
-      <center><input autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" type='text' ng-model="bigo.text" name='text'></input></center>
-      <center><input type="submit" id='submit' value="Submit" /></center>
+      <center><input autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" type="text" ng-model="bigo.text" name="text"></input></center>
+      <center><input type="submit" id="submit" value="Submit" /></center>
     </form>
-    <div align="center"><pre>Your answer = {{bigo.text}}</pre></div>
-  </div>>
+    <div align="center"><pre> Your answer = {{bigo.text}} </pre></div>
+  </div>
 </div>
 

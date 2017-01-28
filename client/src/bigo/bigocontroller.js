@@ -1,49 +1,34 @@
-//hdefffasdfasdf
-angular.module('quizApp')
-  .controller('BigOController', ["$http", "$state", "$sce", "$window", function($http, $state, $sce, $window){
-    this.options = "constant, linear, quadratic, logarithmic, n log n,  or exponential";
-    this.allTheQuestions;
-    this.question;
-    $http.post('/questions', {token:$window.localStorage.accessToken})
-      .then((res) => {
-        this.allTheQuestions = res.data;
-        this.question = $sce.trustAsHtml(this.allTheQuestions[this.counter].question);
-      })
-      .catch((err) => {
-        $state.go('signin');
-      });
-    this.victory = 0;
-    this.counter = 0;
-    this.answer;
-    this.text= '';
-    this.submit = function() {
-        this.answer = this.text;
-        this.text = '';
-        if (this.answer === this.allTheQuestions[this.counter].answer){
-            this.counter ++;
-            this.victory ++;
-            if(this.victory === 20){
-                $http.post('/addmedal', {token:$window.localStorage.accessToken, medal:'bigopenguin'})
-                      .then((res) => {
+(function() {
 
-                      });
+  angular.module('quizApp')
+    .controller('BigOController', ['$sce', 'bigofac', 'tools', function($sce, bigofac, tools) {
 
+      var vm = this;
+      vm.options = 'constant, linear, quadratic, logarithmic, n log n,  or exponential';
+      vm.allTheQuestions;
+      vm.question;
+      vm.victory = 0;
+      vm.counter = 0;
+      vm.answer;
+      vm.text = '';
+      vm.submit = bigofac.submit;
+      // grabs data from here
+      activate();
 
-                $state.go('victory');
-                this.counter = 0;
-                this.question = $sce.trustAsHtml(this.allTheQuestions[this.counter].question);
-                this.victory = 0;
-            }
-            else{
-              this.question = $sce.trustAsHtml(this.allTheQuestions[this.counter].question);
-            }
-        }
-        else{
-            this.victory = 0;
-            this.counter = 0;
-            this.question = $sce.trustAsHtml(this.allTheQuestions[this.counter].question);
-            $state.go('death');
-        }
-    }
+      function activate() {
+        return getData().then(function() {
+          vm.question = $sce.trustAsHtml(vm.allTheQuestions[vm.counter].question);
+        });
+      }
 
-}]);
+      function getData() {
+        return tools.getData('/questions')
+        .then(function(data) {
+          vm.allTheQuestions = data;
+          return vm.allTheQuestions;
+        });
+      }
+      // - to here
+    }]);
+
+})();

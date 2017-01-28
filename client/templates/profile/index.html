@@ -1,18 +1,14 @@
-<div ng-controller="ProfileController as profile">
-
-    <div align='center'><img src='../../content/logo.png' /></div>
-
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h3 class="panel-title">Home for {{currentUser}}</h3>
-        <div align="right"> <a ui-sref="changepassword">Change password</a></div>
-      </div>
-      <div class="panel-body">
-        Medals earned :
-        <div ng-show = "penguin"><img src='/content/penguin.png' height="50" width="50" /></div>
-        <div ng-show = "fox"><img src='/content/fox.png' height="50" width="50" /></div>
-        <div ng-show = "bear"><img src='/content/bear.png' height="50" width="50" /></div>
-      </div>
-    </div>
-
+<div align='center'><img src='../../content/logo.png' /></div>
+<div class="panel panel-default">
+  <div class="panel-heading">
+  <h3 class="panel-title"> Home for {{currentUser}} </h3>
+  <div align="right"> <a ui-sref="changepassword"> Change password </a></div>
+  </div>
+  <div class="panel-body">
+    Medals earned :
+    <div ng-show = "penguin"><img src='/content/penguin.png' height="50" width="50" /></div>
+    <div ng-show = "fox"><img src='/content/fox.png' height="50" width="50" /></div>
+    <div ng-show = "bear"><img src='/content/bear.png' height="50" width="50" /></div>
+  </div>
 </div>
+

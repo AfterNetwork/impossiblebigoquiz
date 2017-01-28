@@ -1,15 +1,11 @@
-<div ng-controller="ForgotPasswordController as forgot">
-    <center><img src="../../content/logo.png"></center>
+<center><img src="../../content/logo.png"></center>
+<form class = "form-signin has-success" ng-submit="forgot.submit()">
+  <h2 class="form-signin-heading"> Reset Password </h2>
 
-      <form class = "form-signin has-success" ng-submit="forgot.submit()">
-        <h2 class="form-signin-heading">Reset Password</h2>
+  <label for="inputEmail" class="sr-only"> Email </label>
+  <input autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" type="email" id="inputEmail" class="form-control" placeholder="email" ng-model="forgot.email" name="text" required ></input>
 
-
-        <label for="inputEmail" class="sr-only">Email </label>
-        <input autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" type='email' id="inputEmail" class="form-control" placeholder="email" ng-model="forgot.email" name='text' required ></input>
-
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Reset Password</button>
-      </form>
+  <button class="btn btn-lg btn-primary btn-block" type="submit"> Reset Password </button>
+</form>
 
 
-</div>
