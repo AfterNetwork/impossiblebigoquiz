@@ -1,4 +1,5 @@
 (function() {
+
   angular.module('quizApp')
     .service('authCheck', ['$http', '$state', '$window', '$rootScope', function($http, $state, $window, $rootScope) {
 
@@ -49,4 +50,3 @@
     }]);
 
 })();
-
